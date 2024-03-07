@@ -38,6 +38,22 @@ jobs:
         run: dotnet restore InitialProject.sln
         shell: powershell
 
+      - name: Ensure RuntimeIdentifier 'win'
+        run: |
+          $csprojPath = 'Booking/Booking.csproj'
+          [xml]$csproj = Get-Content $csprojPath
+          $runtimeIdentifiersNode = $csproj.Project.PropertyGroup.RuntimeIdentifiers
+          if ($runtimeIdentifiersNode -eq $null) {
+            $newNode = $csproj.CreateElement("RuntimeIdentifiers", $csproj.Project.NamespaceURI)
+            $newNode.InnerText = 'win'
+            $csproj.Project.PropertyGroup.AppendChild($newNode)
+          }
+          else {
+            $runtimeIdentifiersNode.InnerText = 'win;' + $runtimeIdentifiersNode.InnerText
+          }
+          $csproj.Save($csprojPath)
+        shell: powershell
+
       - name: Begin SonarCloud analysis
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
