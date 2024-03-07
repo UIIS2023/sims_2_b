@@ -40,7 +40,7 @@ jobs:
 
       - name: Ensure RuntimeIdentifier 'win'
         run: |
-          $csprojPath = 'Booking/Booking.csproj'
+          $csprojPath = 'InitialProject/InitialProject.csproj'
           [xml]$csproj = Get-Content $csprojPath
           $runtimeIdentifiersNode = $csproj.Project.PropertyGroup.RuntimeIdentifiers
           if ($runtimeIdentifiersNode -eq $null) {
