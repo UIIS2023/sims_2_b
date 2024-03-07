@@ -1,0 +1,146 @@
+﻿<Window x:Class="InitialProject.WPF.View.MenuWindowGuest2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InitialProject.WPF.View" xmlns:viewmodel="clr-namespace:InitialProject.WPF.ViewModel" 
+        mc:Ignorable="d"
+        Title="MenuWindowGuest2" Height="768" Width="1024"
+        WindowStartupLocation = "CenterScreen">
+    <Window.Resources>
+        <Style TargetType="{x:Type Border}">
+            <Setter Property="BorderBrush" Value="DarkBlue"/>
+            <Setter Property="BorderThickness" Value="5"/>
+            <Setter Property="CornerRadius" Value="10"/>
+        </Style>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="BorderBrush" Value="#ccc"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="Cursor" Value="Hand"/>
+
+        </Style>
+        <Style TargetType="{x:Type GroupBox}">
+            <Setter Property="BorderBrush" Value="DarkBlue"/>
+            <Setter Property="BorderThickness" Value="2"/>
+
+        </Style>
+    </Window.Resources>
+
+    <Grid HorizontalAlignment="Right" Width="1024">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="22*"/>
+            <ColumnDefinition Width="229*"/>
+            <ColumnDefinition Width="773*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="7*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.Background>
+            <ImageBrush ImageSource="../../Resources/Images/planet.png" Stretch="Fill"/>
+        </Grid.Background>
+
+
+        <GroupBox Header="Main menu" FontSize="15" Margin="0,10,0,10" BorderBrush="DarkBlue" Foreground="DarkBlue" Grid.RowSpan="2" Grid.Column="1">
+            <StackPanel Height="710" Margin="0 -25 -5 0">
+                <Button Background="#2882D2" BorderBrush="DarkBlue" Command="{Binding ToursCommand}" Margin="20,30,20,20" Height="36">
+                    <WrapPanel>
+                        <Image Source="../../Resources/Images/tours.png" Height="26" Width="21">
+                        </Image>
+                        <TextBlock Foreground="AliceBlue" HorizontalAlignment="Right" Margin="0,5,15,0" FontSize="15" Width="47" Height="23" >Tours</TextBlock>
+
+
+                    </WrapPanel>
+                </Button>
+                <Button Background="#2882D2" BorderBrush="DarkBlue" Command="{Binding ReservationsCommand}" Margin="20,20,20,20" Height="36">
+                    <WrapPanel Width="108">
+                        <Image Source="../../Resources/Images/calendar.png" Height="26" Width="21">
+                        </Image>
+                        <TextBlock Foreground="AliceBlue" HorizontalAlignment="Center" FontSize="15" Width="85" Height="22" >Reservations</TextBlock>
+
+
+                    </WrapPanel>
+                </Button>
+                <Button Background="#2882D2" BorderBrush="DarkBlue" Command="{Binding TourRequestsCommand}" Margin="20,20,20,20" Height="36">
+                    <WrapPanel Width="134">
+                        <Image Source="../../Resources/Images/question.png" Height="26" Width="21">
+                        </Image>
+                        <TextBlock Foreground="AliceBlue" HorizontalAlignment="Center" FontSize="15" Width="99" Height="19" >Tour request</TextBlock>
+
+
+                    </WrapPanel>
+                </Button>
+                <Button Background="#2882D2" BorderBrush="DarkBlue" Command="{Binding ComplexTourRequestCommand}" Margin="20,20,20,20" Height="36">
+                    <WrapPanel Width="167">
+                        <Image Source="../../Resources/Images/morequestion.png" Height="26" Width="21">
+                        </Image>
+                        <TextBlock Foreground="AliceBlue" HorizontalAlignment="Center" FontSize="15" Width="145" Height="22" >Complex tour request</TextBlock>
+
+
+                    </WrapPanel>
+                </Button>
+                <Button Background="#2882D2" BorderBrush="DarkBlue" Foreground="AliceBlue" Command="{Binding VouchersCommand}" Margin="20,20,20,20" Height="36">
+                    <WrapPanel Width="109">
+                        <Image Source="../../Resources/Images/voucherticket.png" Height="30" Width="25">
+                        </Image>
+                        <TextBlock Foreground="AliceBlue" HorizontalAlignment="Center" Margin="0,5,15,10" FontSize="15" Width="67" Height="23" ><Run Text="Vouchers"/></TextBlock>
+
+
+                    </WrapPanel>
+                </Button>
+                <Button Background="#2882D2" BorderBrush="DarkBlue" Command="{Binding StatisticsCommand}" Margin="20,20,20,20" Height="36" >
+                    <WrapPanel Width="105" Height="27">
+                        <Image Source="../../Resources/Images/statistic.png" Height="26" Width="21">
+                        </Image>
+                        <TextBlock Foreground="AliceBlue" HorizontalAlignment="Left" FontSize="15" Width="70" Height="25">Statistics</TextBlock>
+
+                    </WrapPanel>
+                </Button>
+                <Button Background="#2882D2"  BorderBrush="DarkBlue" Foreground="AliceBlue" Command="{Binding ActiveTourCommand}" Margin="20,20,20,20" Height="36" >
+                    <WrapPanel Width="105" Height="27">
+                        <Image Source="../../Resources/Images/alarm.png" Height="26" Width="21">
+                        </Image>
+                        <TextBlock Foreground="AliceBlue" HorizontalAlignment="Left" FontSize="15" Width="81" Height="26">Active tours</TextBlock>
+
+                    </WrapPanel>
+                </Button>
+                <Button Background="#2882D2" BorderBrush="DarkBlue" Command="{Binding TourAttendenceCommand}" Margin="20,20,20,20" Height="36">
+                    <WrapPanel Width="134" Height="27">
+                        <Image Source="../../Resources/Images/star2.png" Height="26" Width="21">
+                        </Image>
+                        <TextBlock Foreground="AliceBlue" HorizontalAlignment="Left" FontSize="15" Width="110" Height="26">Tour attendence</TextBlock>
+
+                    </WrapPanel>
+                </Button>
+                <Button Background="#2882D2" BorderBrush="DarkBlue" Command="{Binding CheckNotificationsCommand}" Margin="20,20,20,20" Height="36">
+                    <WrapPanel Width="126" Height="27">
+                        <Image Source="../../Resources/Images/notification.png" Height="26" Width="25">
+                        </Image>
+                        <TextBlock Foreground="AliceBlue" HorizontalAlignment="Left" FontSize="15" Width="90" Height="26">Notifications</TextBlock>
+
+                    </WrapPanel>
+                </Button>
+            </StackPanel>
+        </GroupBox>
+
+        <TextBlock Grid.Column="2" Foreground="DarkBlue" FontWeight="Bold" FontSize="20" Margin="251,28,356,38">BOOKING TOURS</TextBlock>
+        <Image Source="../../Resources/Images/planeicon.png" Grid.Column="2" Margin="376,10,303,11"/>
+        <StackPanel Grid.Row="0" Margin="524,20,20,21" Grid.Column="2">
+            <Button Background="#2882D2" BorderBrush="DarkBlue" Foreground="AliceBlue" Command="{Binding MyAccountCommand}" Height="36" Width="180">
+                <WrapPanel Width="116" Height="27">
+                    <Image Source="../../Resources/Images/person.png" Height="29" Width="21">
+                    </Image>
+                    <TextBlock Foreground="AliceBlue" HorizontalAlignment="Left" FontSize="15" Width="90" Height="26">My account</TextBlock>
+
+                </WrapPanel>
+            </Button>
+        </StackPanel>
+
+        <ContentControl Grid.Column="2" Content="{Binding CurrentUserControl}" Margin="0,94,0,0" Grid.RowSpan="2"/>
+
+    </Grid>
+</Window>

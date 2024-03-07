@@ -1,0 +1,61 @@
+﻿<Window x:Class="InitialProject.WPF.View.ChooseVoucher"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InitialProject.WPF.View"
+        mc:Ignorable="d"
+        Title="ChooseVoucher" Height="450" Width="800" WindowStartupLocation = "CenterScreen">
+    <Grid HorizontalAlignment="Stretch">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="4*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="19*"/>
+            <RowDefinition Height="11*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.Background>
+            <ImageBrush ImageSource="../../Resources/Images/plane.png"  Stretch="Fill"/>
+        </Grid.Background>
+
+        <GroupBox Header="Vouchers&#xD;&#xA;" BorderBrush="DarkBlue" Foreground="DarkBlue" Margin="39,26,39,119" Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="2">
+            <ListBox Background="AliceBlue" ItemsSource="{Binding VouchersMainList, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedVoucher, UpdateSourceTrigger=PropertyChanged}" BorderBrush="DarkBlue" Foreground="DarkBlue" Height="221" Margin="74,0,73,0">
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="BorderThickness" Value="0 0 0 1" />
+                        <Setter Property="BorderBrush" Value="DarkBlue" />
+                        <Setter Property="Padding" Value="0 0 0 5" />
+                    </Style>
+                </ListBox.ItemContainerStyle>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <WrapPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                <StackPanel Margin="0 10 5 10">
+                                    <Label FontSize="13" FontWeight="Bold" Foreground="DarkBlue" Margin="30 10 20 0" Content="Voucher name: "></Label>
+                                    <TextBlock FontSize="13" Margin="25 10 10 0" Text="{Binding Name}"></TextBlock>
+                                </StackPanel>
+                                <StackPanel Margin="0 10 10 10">
+                                    <Label FontSize="13" Margin="30 10 20 0" FontWeight="Bold" Foreground="DarkBlue" Content="Until when the voucher can be used: "></Label>
+                                    <TextBlock FontSize="13" Margin="90 10 10 0" Text="{Binding ExpirationDate}"></TextBlock>
+                                </StackPanel>
+                            </WrapPanel>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </GroupBox>
+
+        <GroupBox Header="Options" BorderBrush="DarkBlue" Foreground="DarkBlue" Margin="39,40,39,28" Grid.Row="1" Grid.ColumnSpan="2">
+            <StackPanel Height="83">
+                <Button Content="Use selected voucher" BorderBrush="DarkBlue" Foreground="DarkBlue" Background="AliceBlue" Command="{Binding UseVoucherCommand}" Margin="-150, 15, 0, 0" Height="36" Width="160">
+                </Button>
+                <Button Content="Cancel" BorderBrush="DarkBlue" Foreground="DarkBlue" Background="AliceBlue" Command="{Binding CancelVoucherCommand}" Margin="200, -40, 0, 0" Height="36" Width="160">
+                </Button>
+            </StackPanel>
+        </GroupBox>
+
+    </Grid>
+</Window>

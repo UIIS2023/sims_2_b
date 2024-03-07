@@ -1,0 +1,72 @@
+﻿<UserControl x:Class="InitialProject.WPF.View.TourReservations"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InitialProject.WPF.View" xmlns:viewmodel="clr-namespace:InitialProject.WPF.ViewModel" 
+        mc:Ignorable="d" Width="770" Height="580">
+    <Grid Margin="0,10,0,0" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="301*"/>
+            <RowDefinition Height="139*"/>
+        </Grid.RowDefinitions>
+        <GroupBox Header="Reservations" FontSize="15" Margin="0,6,3,158" BorderBrush="DarkBlue" Foreground="DarkBlue" Grid.Row="0" Grid.RowSpan="2">
+            <ListBox Grid.Row="0" Background="AliceBlue" ItemsSource="{Binding ReservedTours, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedReservedTour, UpdateSourceTrigger=PropertyChanged}" BorderBrush="DarkBlue" Foreground="DarkBlue" Height="360" Margin="3,0,3,0">
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="BorderThickness" Value="0 0 0 1" />
+                        <Setter Property="BorderBrush" Value="DarkBlue" />
+                        <Setter Property="Padding" Value="0 0 0 5" />
+                    </Style>
+                </ListBox.ItemContainerStyle>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <StackPanel Margin="40 0 0 0">
+                                <StackPanel Orientation="Horizontal" Margin="20 7 10 0">
+                                    <Label FontSize="13" Width="70" FontWeight="Bold" Foreground="DarkBlue" Content="Tour id: "></Label>
+                                    <TextBlock FontSize="13" Margin="55 6 10 0" Text="{Binding IdTour}"></TextBlock>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="20 0 10 0">
+                                    <Label FontSize="13" Width="100" FontWeight="Bold" Foreground="DarkBlue" Content="Tour name: "></Label>
+                                    <TextBlock FontSize="13" Margin="25 5 10 0" Text="{Binding TourName}"></TextBlock>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="20 0 10 0">
+                                    <Label FontSize="13" Width="100" FontWeight="Bold" Foreground="DarkBlue" Content="Guest number: "></Label>
+                                    <TextBlock FontSize="13" Margin="27 5 0 0" Text="{Binding GuestNum}"></TextBlock>
+                                </StackPanel>
+
+                                <StackPanel Orientation="Horizontal" Margin="20 0 10 0">
+                                    <Label FontSize="13" Width="140" FontWeight="Bold" Foreground="DarkBlue" Content="Free sets number: "></Label>
+                                    <TextBlock FontSize="13" Margin="-12 5 0 0" Text="{Binding FreeSetsNum}"></TextBlock>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="20 0 10 0">
+                                    <Label FontSize="13" Width="100" FontWeight="Bold" Foreground="DarkBlue" Content="Used voucher: "></Label>
+                                    <TextBlock FontSize="13" Margin="27 5 0 0" Text="{Binding UsedVoucher}"></TextBlock>
+                                </StackPanel>
+                            </StackPanel>
+
+                            <Image Source="{Binding ImageSource}" Height="130" Width="200" HorizontalAlignment="Left" Margin="420 0 -700 0"></Image>
+                         
+                            
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+        </GroupBox>
+        <GroupBox Header="Options&#xD;&#xA;" FontSize="15" Grid.Row="1" BorderBrush="DarkBlue" Foreground="DarkBlue" Margin="0,27,3,27">
+            <StatusBar Grid.Row="1" Grid.ColumnSpan="2" Margin="144,-5,95,25" Background="Transparent" Height="73">
+                <Button BorderBrush="DarkBlue" Foreground="DarkBlue" Background="AliceBlue" Command="{Binding ChangeGuestNumCommand}" Height="36" Width="224">
+                    <WrapPanel Width="190" Height="27">
+                        <Image Source="../../Resources/Images/arrowrightleft.png" Height="29" Width="21">
+                        </Image>
+                        <TextBlock Foreground="DarkBlue" HorizontalAlignment="Left" FontSize="15" Width="165" Height="26">Change guest number</TextBlock>
+
+                    </WrapPanel>
+                </Button>
+                <Button Content="Give up reservation" FontSize="15" BorderBrush="DarkBlue" Foreground="DarkBlue" Background="AliceBlue" Command="{Binding GiveUpReservationCommand}" Height="36" Width="224"/>
+            </StatusBar>
+        </GroupBox>
+    </Grid>
+</UserControl>

@@ -1,0 +1,82 @@
+﻿<Window x:Class="InitialProject.View.AlternativeTourFiltering"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InitialProject.View" xmlns:viewmodel="clr-namespace:InitialProject.WPF.ViewModel" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        mc:Ignorable="d"
+        Title="AlternativeTourFiltering" Height="450" Width="800" WindowStartupLocation = "CenterScreen" BorderBrush="DarkBlue" Background="AliceBlue">
+    <Window.Resources>
+        <ControlTemplate x:Key="ValidationTemplate">
+            <StackPanel>
+                <!-- Placeholder for the TextBox itself -->
+                <AdornedElementPlaceholder x:Name="textBox" />
+                <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red" />
+            </StackPanel>
+
+        </ControlTemplate>
+    </Window.Resources>
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="400"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid.Background>
+            <ImageBrush ImageSource="../../Resources/Images/searching.png"  Stretch="Fill"/>
+        </Grid.Background>
+
+        <Grid Grid.Row="0" Grid.Column="0" Width="300" Height="200">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="43*"></ColumnDefinition>
+                <ColumnDefinition Width="128*"></ColumnDefinition>
+                <ColumnDefinition Width="129*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Image Source="../../Resources/Images/loc2.png" Height="30" Width="27" Grid.Column="0" Grid.Row="0">
+            </Image>
+            <Image Source="../../Resources/Images/loc2.png" Height="30" Width="27" Grid.Column="0" Grid.Row="1">
+            </Image>
+            <Image Source="../../Resources/Images/clock2.png" Height="30" Width="27" Grid.Column="0" Grid.Row="2">
+            </Image>
+            <Image Source="../../Resources/Images/language.png" Height="30" Width="27" Grid.Column="0" Grid.Row="3">
+            </Image>
+            <Image Source="../../Resources/Images/pen.png" Height="30" Width="27" Grid.Column="0" Grid.Row="4">
+            </Image>
+
+            <Label Grid.Row="0"  Foreground="DarkBlue" Margin="0,5,0,1" Grid.Column="1" >TourLocationCountry</Label>
+            <Label Grid.Row="1"  Foreground="DarkBlue" Margin="4,2,0,2" Grid.Column="1" >TourLocationCity</Label>
+            <Label Grid.Row="2"  Foreground="DarkBlue" Margin="4,1,0,2" Grid.Column="1" >TourDuration</Label>
+            <Label Grid.Row="3"  Foreground="DarkBlue" Margin="4,6,0,4" Grid.Column="1" >TourLanguage</Label>
+            <Label Grid.Row="4"  Foreground="DarkBlue" Margin="4,5,0,5" Grid.Column="1" >TourGuestNum</Label>
+            <ComboBox Name="ComboBoxCountry" Grid.Row="0" Grid.Column="2" SelectedIndex="0" ItemsSource="{Binding Countries }" SelectedItem="{Binding SelectedCountry, Mode=TwoWay}" Foreground="DarkBlue" BorderBrush="DarkBlue" Margin="0,5,0,5"  />
+            <ComboBox Name="ComboBoxCity" Grid.Row="1" Grid.Column="2" SelectedIndex="0" ItemsSource="{Binding Cities}" SelectedItem="{Binding SelectedCity, Mode=TwoWay}" IsEnabled="{Binding IsCityEnabled}" Foreground="DarkBlue" BorderBrush="DarkBlue" Margin="0,5,0,5"/>
+            <xctk:IntegerUpDown Watermark="1" Minimum="1" Grid.Row="2" Grid.Column="2" Foreground="DarkBlue" Background="LightGray" BorderBrush="DarkBlue"  Value="{Binding Path=TourDuration, 
+                Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,6,0,8"/>
+            <TextBox Grid.Row="3" Grid.Column="2" Foreground="DarkBlue" Background="LightGray" BorderBrush="DarkBlue"  x:Name="txtLanguage" Text="{Binding Path=TourLanguage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,5,0,5" />
+            <xctk:IntegerUpDown Watermark="1" Minimum="1" Grid.Row="4" Grid.Column="2" Foreground="DarkBlue" Background="LightGray" BorderBrush="DarkBlue"  Value="{Binding Path=TourGuestNum, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,8,0,8"
+                     Height="23"/>
+        </Grid>
+
+
+        <Button Foreground="DarkBlue" BorderBrush="DarkBlue" Background="AliceBlue" Command="{Binding FilterCommand}" Margin="275,340,400,22">
+            <WrapPanel Width="80" Height="27">
+                <Image Source="../../Resources/Images/filter2.png" Height="31" Width="27">
+                </Image>
+                <TextBlock Foreground="DarkBlue" HorizontalAlignment="Left" FontSize="15" Width="42" Height="26">Filter</TextBlock>
+
+            </WrapPanel>
+        </Button>
+        <Button Content="Cancel" FontSize="13" Foreground="DarkBlue" BorderBrush="DarkBlue" Background="AliceBlue" Command="{Binding CancelCommand}" Margin="435,340,235,22"/>
+        <GroupBox Header="Options" Margin="204,300,167,17" FontSize="13" Foreground="DarkBlue" BorderBrush="DarkBlue" Grid.RowSpan="2"/>
+        <Label Content="Fill in the fields of your choice:" FontSize="16" Foreground="DarkBlue" HorizontalAlignment="Left" Margin="171,54,0,0" VerticalAlignment="Top" Height="41"/>
+    </Grid>
+</Window>

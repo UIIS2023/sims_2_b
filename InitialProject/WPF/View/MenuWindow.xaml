@@ -1,0 +1,42 @@
+﻿<Window x:Class="InitialProject.WPF.View.MenuWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InitialProject.WPF.View"
+        mc:Ignorable="d"
+        Title="MenuWindow"
+        WindowState="Maximized">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Menu Grid.Row="0" Background="AliceBlue">
+            <MenuItem Header="Accommodations" FontSize="21" Foreground="DarkMagenta" FontWeight="Bold" Margin="0 0 20 0" Command="{Binding OpenAccommodations}"/>
+            <MenuItem Header="Reservations" FontSize="21" Foreground="DarkMagenta" FontWeight="Bold" Margin="0 0 20 0" Command="{Binding OpenReservations}"/>
+            <MenuItem Header="Reviews" FontSize="21" Foreground="DarkMagenta" FontWeight="Bold" Margin="0 0 20 0" Command="{Binding OpenReviews}"/>
+            <MenuItem Header="Renovations" FontSize="21" Foreground="DarkMagenta" FontWeight="Bold" Margin="0 0 20 0" Command="{Binding OpenRenovations}"/>
+            <MenuItem Header="Forum" FontSize="21" Foreground="DarkMagenta" FontWeight="Bold" Margin="0 0 20 0" Command="{Binding OpenForum}"/>
+            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+
+                <Button Content="Tutorial" Margin="300 5 10 5" Height="50" FontSize="19" Background="AliceBlue" BorderThickness="2" BorderBrush="DarkMagenta" Foreground="DarkMagenta" Command="{Binding OpenTutorial}"></Button>
+                
+                <Button Margin="20 5 10 5"  Height="50" Width="50" Background="AliceBlue"  BorderThickness="2" BorderBrush="DarkMagenta" Command="{Binding ViewNotifications}">
+
+                    <Image Source="../../Resources/Images/bell.png" Height="40" Width="40" Stretch="Fill" />
+                    
+                </Button>
+                <Button Margin="10 5 5 5"  Height="50" Width="50" Background="AliceBlue" BorderThickness="2" BorderBrush="DarkMagenta" Command="{Binding YourProfile}">
+                    <Image Source="../../Resources/Images/profile.png" Height="40" Width="40" Stretch="Fill"/>
+                </Button>
+                
+            </StackPanel>
+        </Menu>
+        <Border BorderBrush="DarkMagenta" BorderThickness="0 0 0 3" />
+
+        <ContentControl Grid.Row="1" Content="{Binding CurrentUserControl}"/>
+
+    </Grid>
+</Window>

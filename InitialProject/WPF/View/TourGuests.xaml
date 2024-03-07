@@ -1,0 +1,45 @@
+﻿<Page x:Class="InitialProject.View.TourGuests"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InitialProject.View"
+        mc:Ignorable="d"
+        Title="TourGuests" Height="592" Width="430">
+    <Page.Background>
+        <ImageBrush ImageSource="../../Resources/Images/zutozeleno.png" Stretch="UniformToFill"></ImageBrush>
+    </Page.Background>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="7*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label Content="TOUR GUESTS" HorizontalAlignment="Center" FontSize="30" FontWeight="Bold" ></Label>
+        <DataGrid Grid.Row ="1" Name="datagrid1" Margin="50,50,50,50" BorderBrush="Transparent" Background="Transparent"  Grid.ColumnSpan="3" RowHeight="50"
+                      ItemsSource="{Binding Path=Users, UpdateSourceTrigger=PropertyChanged}"
+                      AutoGenerateColumns="False" IsReadOnly="True"
+                      SelectedItem="{Binding Path=SelectedUser, UpdateSourceTrigger=PropertyChanged}" SelectionMode="Single">
+
+            <DataGrid.Resources>
+                <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="White" />
+                    <Setter Property="BorderBrush" Value="Black"/>
+                    <Setter Property="BorderThickness" Value="1.2"/>
+                    <Setter Property="Height" Value="30"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    <Setter Property="FontWeight" Value="Bold"/>
+                </Style>
+            </DataGrid.Resources>
+            <DataGrid.Columns>
+                <DataGridTextColumn  Header="Guest name" Binding="{Binding UserName, UpdateSourceTrigger=PropertyChanged}" Width="1*"></DataGridTextColumn>
+        </DataGrid.Columns>
+    </DataGrid>
+        <WrapPanel Grid.Row="2" HorizontalAlignment="Center">
+            <Button Background="White"  IsCancel="True"  Margin="20, 5, 20, 5" Width="90" Height="30"
+                Command="{Binding AddGuestCommand}" Content="Add to tour"/>
+            <Button Background="White" IsDefault="True" Margin="20, 5, 20, 5" Width="90" Height="30"
+                Command="{Binding DoneAddingCommand}" Content="Done adding"/>
+        </WrapPanel>
+    </Grid>
+</Page>

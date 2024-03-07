@@ -1,0 +1,45 @@
+﻿<Window x:Class="InitialProject.WPF.View.ViewOwnerReviewGallery"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InitialProject.WPF.View"
+        mc:Ignorable="d"
+        Title="ViewOwnerReviewGallery" Height="450" Width="810">
+    <Grid>
+        
+       
+
+        <Border BorderThickness="0 0 1 0" BorderBrush="DarkBlue" Background="AliceBlue" Margin="-10,0,10,0" Grid.RowSpan="2">
+
+        </Border>
+
+        <Grid Grid.Column="0" Grid.RowSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" HorizontalAlignment="Center" FontSize="27" FontWeight="Bold"  Text="{Binding SelectedRate.Reservation.Accommodation.Name}" Foreground="DarkBlue"></TextBlock>
+
+            <Separator HorizontalAlignment="Stretch" Margin="0,27" Background="DarkBlue"  Height="10"/>
+            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Visible">
+                <WrapPanel  x:Name="ImagesPanel" Orientation="Horizontal">
+
+
+
+                </WrapPanel>
+            </ScrollViewer>
+
+
+
+
+
+
+        </Grid>
+
+
+        
+
+    </Grid>
+</Window>

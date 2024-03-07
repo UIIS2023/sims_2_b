@@ -1,0 +1,43 @@
+﻿<UserControl x:Class="InitialProject.WPF.View.Tutorial"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:InitialProject.WPF.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="../../Resources/Images/tutorial.png"  Stretch="Fill"/>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="7*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        
+        <StackPanel Grid.Column="0" Orientation="Vertical">
+            <Button Content="Accommodations" Click="Button_Click_2" BorderBrush="DarkMagenta" BorderThickness="3" Foreground="DarkMagenta"  Margin="30 30 0 0 " Height="45" Width="155" FontSize="20"></Button>
+            <Button Content="Reservations" Click="Button_Click_3" BorderBrush="DarkMagenta" BorderThickness="3" Foreground="DarkMagenta"  Margin="30 40 0 0 " Height="45" Width="155" FontSize="20"></Button>
+            <Button Content="Reviews" Click="Button_Click_4" BorderBrush="DarkMagenta" BorderThickness="3" Foreground="DarkMagenta"  Margin="30 40 0 0 " Height="45" Width="155" FontSize="20"></Button>
+            <Button Content="Renovation" Click="Button_Click_5" BorderBrush="DarkMagenta" BorderThickness="3" Foreground="DarkMagenta"  Margin="30 40 0 0 " Height="45" Width="155" FontSize="20"></Button>
+            <Button Content="Forum" Click="Button_Click_6" BorderBrush="DarkMagenta" BorderThickness="3" Foreground="DarkMagenta"  Margin="30 40 0 0 " Height="45" Width="155" FontSize="20"></Button>
+            <Button Content="Your profile" Click="Button_Click_7" BorderBrush="DarkMagenta" BorderThickness="3" Foreground="DarkMagenta"  Margin="30 40 0 0 " Height="45" Width="155" FontSize="20"></Button>
+        </StackPanel>
+
+       
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="7*"></RowDefinition>
+                <RowDefinition Height="2*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <MediaElement Name="media"  Grid.Row="0" HorizontalAlignment="Stretch"></MediaElement>
+            <StackPanel Orientation="Horizontal" Grid.Row="1">
+                <Button Content="Pause" Click="Button_Click" BorderBrush="DarkMagenta" BorderThickness="3" Foreground="DarkMagenta"  Margin="300 0 0 0 " Height="45" Width="140" FontSize="20"></Button>
+                <Button Content="Play" Click="Button_Click_1"  BorderBrush="DarkMagenta" BorderThickness="3" Foreground="DarkMagenta"  Margin="100 0 0 0 " Height="45" Width="140" FontSize="20"></Button>
+            </StackPanel>
+        </Grid>
+            
+    </Grid>
+</UserControl>

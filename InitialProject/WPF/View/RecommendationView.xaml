@@ -1,0 +1,132 @@
+﻿<Window x:Class="InitialProject.WPF.View.RecommendationView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InitialProject.WPF.View"
+        mc:Ignorable="d"
+        Title="RecommendationView" Height="600" Width="800" 
+        WindowStartupLocation="CenterScreen" Background="Beige">
+    <Window.Resources>
+        <Style TargetType="{x:Type Label}">
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="#444"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Margin" Value="10"/>
+        </Style>
+        <Style TargetType="{x:Type Border}">
+            <Setter Property="BorderBrush" Value="Azure"/>
+            <Setter Property="BorderThickness" Value="5"/>
+            <Setter Property="CornerRadius" Value="10"/>
+        </Style>
+        <Style TargetType="{x:Type Grid}">
+            <Setter Property="Margin" Value="10"/>
+        </Style>
+        <Style TargetType="{x:Type DatePicker}">
+            <Setter Property="Margin" Value="10"/>
+        </Style>
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="BorderBrush" Value="#ccc"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Background" Value="#fff"/>
+            <Setter Property="Foreground" Value="#333"/>
+            <Setter Property="FontSize" Value="14"/>
+        </Style>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="BorderBrush" Value="#ccc"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Background" Value="#f5f5f5"/>
+            <Setter Property="Foreground" Value="#333"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+        <Style TargetType="{x:Type WrapPanel}">
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="Background" Value="#f5f5f5"/>
+
+        </Style>
+    </Window.Resources>
+    <Border BorderBrush="BurlyWood"  BorderThickness="5" Margin="0,0,0,-17">
+        <StackPanel>
+            <Border BorderThickness="1" BorderBrush="LightGray" Margin="10" Padding="5"  >
+                <Border.Background>
+                    <ImageBrush  Stretch="Fill" ImageSource="/Resources/Images/wwod.jpg"/>
+                </Border.Background>
+                <TextBlock Text="RECCOMMENDATION" FontSize="48" FontWeight="Bold" Margin="5" TextAlignment="Center"  FontFamily="Arial Narrow" TextDecorations="{x:Null}" />
+            </Border>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="9*"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Border BorderBrush="BurlyWood"  BorderThickness="5">
+                    <Grid Grid.Row="0" Grid.Column="0" Height="300" Margin="0,13,64,14" HorizontalAlignment="Right" Width="592" >
+                        <Grid.Background>
+                            <ImageBrush Stretch="Fill" ImageSource="/Resources/Images/wwod.jpg"/>
+                        </Grid.Background>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0" FontSize="20" Margin="25,48,73,60">Comment :</Label>
+                        <Label Grid.Row="1" Grid.Column="0" FontSize="20" Margin="25,46,73,60">Chose level :</Label>
+                        <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="0" Margin="0,0,0,10">
+                            <TextBox Grid.Column="1" Height="88" Margin="0,15,20,0"  Text="{Binding Path=RecommendationOnAccommodations.Comment, UpdateSourceTrigger=PropertyChanged}" />
+                            <TextBlock Text="{Binding RecommendationOnAccommodations.ValidationErrors[Comment]}" Foreground="Red" TextAlignment="Center"  Height="33" Margin="0,10,0,0"/>
+
+                        </StackPanel>
+
+                        <ComboBox Grid.Row="1"  Grid.Column="1" Margin="0,52,70,62" Height="36" SelectedIndex="0"  Text="{Binding Path=Level}">
+                            <ComboBoxItem>Level1</ComboBoxItem>
+                            <ComboBoxItem>Level2</ComboBoxItem>
+                            <ComboBoxItem>Level3</ComboBoxItem>
+                            <ComboBoxItem>Level4</ComboBoxItem>
+                            <ComboBoxItem>Level5</ComboBoxItem>
+                        </ComboBox>
+
+                        <Button Margin="231,0,10,20" Grid.Column="1" Grid.Row="1" BorderThickness="0" Command="{Binding Instruction}">
+                            <Button.Background>
+                                <ImageBrush ImageSource="/Resources/Images/wwod.jpg"/>
+                            </Button.Background>
+                            <Image Source="/Resources/Images/instr.png" Width="34" ></Image>
+                        </Button>
+
+
+                    </Grid>
+
+                </Border>
+
+
+                <GroupBox Grid.Row="1" Margin="0,0,0,39" Header="Options"  BorderBrush="Black" BorderThickness="2" Grid.RowSpan="2" FontSize="22">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Button Grid.Column="0" Content="Instructions"  Background="BurlyWood"/>
+                        <Button Grid.Column="2" Content="Cancel" IsCancel="True" Margin="20, 5, 20, 5" Command="{Binding Close}"  Background="BurlyWood"/>
+                        <Button Grid.Column="1" Content="Recommend" IsDefault="True" Margin="20, 5, 20, 5"  x:Name="BlockedButton" Command="{Binding Reccommend}" Background="BurlyWood"/>
+                    </Grid>
+                </GroupBox>
+
+
+            </Grid>
+        </StackPanel>
+    </Border>
+
+</Window>

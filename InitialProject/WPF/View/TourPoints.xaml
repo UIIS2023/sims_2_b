@@ -1,0 +1,73 @@
+﻿<Page x:Class="InitialProject.View.TourPoints"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InitialProject.View"
+        mc:Ignorable="d"
+        Title="TourPoints" Height="592" Width="430">
+    <Page.Background>
+        <ImageBrush ImageSource="../../Resources/Images/zuta_poz2.jpg" Stretch="UniformToFill"></ImageBrush>
+    </Page.Background>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="7*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label  FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Content="Tour:"></Label>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label Content="Name:" Width="150" HorizontalAlignment="Right"/>
+            <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding SelectedTour.Name}" Width="150" HorizontalAlignment="Left"></TextBlock>
+
+            <Label Grid.Row="1" Grid.Column="0" Content="Location:" Width="150" HorizontalAlignment="Right"/>
+            <TextBlock Grid.Row="1" Grid.Column="1"  Text="{Binding SelectedTour.Location.City}" Width="150" HorizontalAlignment="Left"></TextBlock>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="8*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label  FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Content="Tour points"></Label>
+            <DataGrid Background="Transparent" Grid.Row="1" Name="tp_datagrid" MinRowHeight="50" Margin="20" BorderBrush="Transparent" Grid.ColumnSpan="3" RowHeight="50"
+                      ItemsSource="{Binding Points, UpdateSourceTrigger=PropertyChanged}"
+                      AutoGenerateColumns="False" IsReadOnly="True">
+                <DataGrid.Resources>
+                    <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                        <Setter Property="Background" Value="#72e3c4" />
+                        <Setter Property="BorderBrush" Value="Black"/>
+                        <Setter Property="BorderThickness" Value="1.2"/>
+                        <Setter Property="Height" Value="30"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        <Setter Property="FontWeight" Value="Bold"/>
+                    </Style>
+                </DataGrid.Resources>
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Header="Active">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox IsChecked="{Binding Active, UpdateSourceTrigger=PropertyChanged}" Checked="CheckBoxChanged"></CheckBox>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn Header="Name" Binding="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Width="1*"></DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+        <WrapPanel Grid.Row="3" HorizontalAlignment="Center">
+            <Button  Background="#72e3c4" FontSize="16" Width="100" Margin="0 10 20 0" Height="30" VerticalAlignment="Top" Command="{Binding SuddenEndCommand}">Sudden end</Button>
+            <Button  Background="#72e3c4" FontSize="16" Width="100" Margin="0 10 20 0" Height="30" VerticalAlignment="Top" Command="{Binding PauseCommand}">Pause tour</Button>
+        </WrapPanel>
+
+    </Grid>
+
+</Page>

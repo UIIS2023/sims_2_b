@@ -1,0 +1,63 @@
+﻿<Window x:Class="InitialProject.WPF.View.Guest1NotiificationsView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:cmd="http://www.galasoft.ch/mvvmlight"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+
+        xmlns:local="clr-namespace:InitialProject.WPF.View" xmlns:viewmodel="clr-namespace:InitialProject.WPF.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:Guest1NotificationsViewModel}"
+        mc:Ignorable="d"
+        Title="Guest1NotiificationsView" Height="450" Width="800">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Resources/Images/wwod.jpg" Stretch="Fill"/>
+        </Grid.Background>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <GroupBox Grid.Row="1" Grid.Column="1" Header="Your Notifications" FontSize="31" FontWeight="Bold" FontStyle="Italic">
+            <ListBox ItemsSource="{Binding Notifications}"
+         SelectedItem="{Binding SelectedNotification}"
+         FontSize="20"
+         FontWeight="Light"
+         Background="#E6FFFFFF"
+         BorderThickness="0"
+         Padding="20">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <Image Source="/Resources/Images/notification.png"
+                       Width="40"
+                       Height="40"
+                       VerticalAlignment="Center"
+                       Margin="0,0,10,0" />
+                            <TextBlock Grid.Column="1"
+                           Text="{Binding}"
+                           VerticalAlignment="Center" />
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+
+
+        </GroupBox>
+
+    </Grid>
+</Window>

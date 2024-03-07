@@ -1,0 +1,74 @@
+﻿<Window x:Class="InitialProject.View.FilteringAccommodation"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InitialProject.View"
+        mc:Ignorable="d"
+        Title="FilteringAccommodation" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="9*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Border BorderBrush="Azure" BorderThickness="5">
+            <Grid Grid.Row="0" Grid.Column="0" Width="300" Height="300" Background="WhiteSmoke"  >
+
+                <Grid.RowDefinitions >
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0" Height="30" >Filter by name</Label>
+                <Label Grid.Row="1" Grid.Column="0" Height="30" >Filter by country</Label>
+                <Label Grid.Row="2" Grid.Column="0" Height="30" >Filter by city</Label>
+                <Label Grid.Row="3" Grid.Column="0" Height="30" >Filter by type</Label>
+                <Label Grid.Row="4" Grid.Column="0" Height="30" >Filter by number of guests</Label>
+                <Label Grid.Row="5" Grid.Column="0" Height="30" >Filter by number of days</Label>
+
+                <TextBox Grid.Row="0" Grid.Column="1" 
+                     Height="30" x:Name="txtName">
+
+                </TextBox>
+
+                <ComboBox  Name="ComboBoxCountry" Grid.Row="1" Grid.Column="1" ItemsSource="{Binding Countries}" SelectedItem="{Binding Country}"
+                     Height="30" DropDownClosed="ComboBox_DropDownClosed"></ComboBox>
+                <ComboBox Name="ComboboxCity" Grid.Row="2" Grid.Column="1" ItemsSource="{Binding Cities}" SelectedItem="{Binding City}"
+                     Height="30" DropDownClosed="ComboboxCity_DropDownClosed" IsEnabled="False"></ComboBox>
+
+
+                <ComboBox Name="ComboboxType" Grid.Row="3" Grid.Column="1" SelectedItem="{Binding SelectedType}"
+                     Height="30"   SelectedIndex="-1">
+                    <ComboBoxItem Content="Apartment"/>
+                    <ComboBoxItem Content="House"/>
+                    <ComboBoxItem Content="Cottage"/>
+                </ComboBox>
+                <TextBox Grid.Row="4" Grid.Column="1" 
+                     Height="30" x:Name="txtGuestNum" >
+                </TextBox>
+                <TextBox Grid.Row="5" Grid.Column="1" 
+                     Height="30" x:Name="txtReservationNum" >
+                </TextBox>
+
+
+            </Grid>
+        </Border>
+        <WrapPanel Grid.Row="1" FlowDirection="RightToLeft" Background="BurlyWood" >
+            <Button Content="Cancel" IsCancel="True" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20, 5, 20, 5"
+                Click="Cancel_Click"/>
+            <Button Content="Filter" IsDefault="True" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20, 5, 20, 5"
+                Click="Filter_Click"/>
+        </WrapPanel>
+
+    </Grid>
+</Window>

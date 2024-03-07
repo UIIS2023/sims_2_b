@@ -1,0 +1,82 @@
+﻿<UserControl x:Class="InitialProject.WPF.View.TourAttendence"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InitialProject.WPF.View"
+        mc:Ignorable="d" Width="770" Height="580">
+    <Grid HorizontalAlignment="Stretch">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="285*"/>
+            <RowDefinition Height="45*"/>
+            <RowDefinition Height="121*"/>
+        </Grid.RowDefinitions>
+
+        <GroupBox Header="Tours you attended&#xD;&#xA;" FontSize="15" Margin="0,15,3,0" BorderBrush="DarkBlue" Foreground="DarkBlue" Grid.Row="0" Grid.RowSpan="2">
+            <ListBox Grid.Row="0" Background="AliceBlue" ItemsSource="{Binding ToursAttended, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedAttendedTour, UpdateSourceTrigger=PropertyChanged}" BorderBrush="DarkBlue" Foreground="DarkBlue" Height="355">
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="BorderThickness" Value="0 0 0 1" />
+                        <Setter Property="BorderBrush" Value="DarkBlue" />
+                        <Setter Property="Padding" Value="0 0 0 5" />
+                    </Style>
+                </ListBox.ItemContainerStyle>
+                <ListBox.ItemTemplate>
+                    
+                    <DataTemplate>
+                        <Grid>
+                            <StackPanel Margin="40 7 0 0">
+                                <StackPanel Orientation="Horizontal" Margin="5 0 10 0">
+                                    <Label FontSize="13" Width="80" FontWeight="Bold" Foreground="DarkBlue" Content="Name: "></Label>
+                                    <TextBlock FontSize="13" Margin="65 5 10 0" Text="{Binding Tour.Name}"></TextBlock>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="5 0 0 0">
+                                    <Label FontSize="13" Width="130" FontWeight="Bold" Foreground="DarkBlue" Content="Location: "></Label>
+                                    <TextBlock FontSize="13" Margin="15 5 10 0">
+                                        <TextBlock.Text>
+                                            <MultiBinding StringFormat="{}{0} {1}">
+                                                <Binding Path="Tour.Location.Country"/>
+                                                <Binding Path="Tour.Location.City"/>
+                                            </MultiBinding>
+                                        </TextBlock.Text>
+                                    </TextBlock>
+                                </StackPanel >
+                                <StackPanel Orientation="Horizontal" Margin="5 0 10 0">
+                                    <Label FontSize="13" Width="90" FontWeight="Bold" Foreground="DarkBlue" Content="Language: "></Label>
+                                    <TextBlock FontSize="13" Margin="55 5 10 0" Text="{Binding Tour.Language}"></TextBlock>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="5 0 10 0">
+                                    <Label FontSize="13" Width="140" FontWeight="Bold" Foreground="DarkBlue" Content="Max guest number: "></Label>
+                                    <TextBlock FontSize="13" Margin="7 5 10 0" Text="{Binding Tour.MaxGuestNum}"></TextBlock>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="5 0 10 0">
+                                    <Label FontSize="13" Width="80" FontWeight="Bold" Foreground="DarkBlue" Content="Duration: "></Label>
+                                    <TextBlock FontSize="13" Margin="69 5 10 0" Text="{Binding Tour.Duration}"></TextBlock>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="5 0 10 0">
+                                    <Label FontSize="13" Width="140" FontWeight="Bold" Foreground="DarkBlue" Content="Tour point name: "></Label>
+                                    <TextBlock FontSize="13" Margin="10 5 10 0" Text="{Binding TourPointName}"></TextBlock>
+                                </StackPanel>
+                            </StackPanel>
+                            <Image Source="{Binding ImageSource}" Height="130" Width="200" HorizontalAlignment="Left" Margin="420 0 -700 0"></Image>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </GroupBox>
+
+        <GroupBox Header="Options" FontSize="15" Margin="0,10,3,29" BorderBrush="DarkBlue" Foreground="DarkBlue" Grid.Row="2" Width="NaN" Height="NaN">
+            <StackPanel Height="74">
+                <Button BorderBrush="DarkBlue" Background="AliceBlue" Foreground="DarkBlue" Command="{Binding RateTourCommand}" Margin="0, 15, 0, 0" Height="36" Width="224">
+                    <WrapPanel Width="92" Height="27">
+                        <Image Source="../../Resources/Images/medal.png" Height="29" Width="21">
+                        </Image>
+                        <TextBlock Foreground="DarkBlue" HorizontalAlignment="Left" FontSize="15" Width="69" Height="26">Rate tour</TextBlock>
+
+                    </WrapPanel>
+                </Button>
+            </StackPanel>
+        </GroupBox>
+    </Grid>
+</UserControl>

@@ -1,0 +1,687 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net6.0-windows</TargetFramework>
+		<Nullable>enable</Nullable>
+		<UseWPF>true</UseWPF>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Remove="View\**" />
+		<EmbeddedResource Remove="View\**" />
+		<None Remove="View\**" />
+		<Page Remove="View\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Remove="Resources\Images\abackground.png" />
+		<None Remove="Resources\Images\abstract.png" />
+		<None Remove="Resources\Images\add.png" />
+		<None Remove="Resources\Images\add5.png" />
+		<None Remove="Resources\Images\airplane.png" />
+		<None Remove="Resources\Images\alarm.png" />
+		<None Remove="Resources\Images\alternative3.png" />
+		<None Remove="Resources\Images\alternative4.png" />
+		<None Remove="Resources\Images\add1.png" />
+		<None Remove="Resources\Images\ana.png" />
+		<None Remove="Resources\Images\anasbackground.png" />
+		<None Remove="Resources\Images\angela.png" />
+		<None Remove="Resources\Images\apartmani.png" />
+		<None Remove="Resources\Images\arrow.png" />
+		<None Remove="Resources\Images\arrowrightleft.png" />
+		<None Remove="Resources\Images\back2.png" />
+		<None Remove="Resources\Images\background1.png" />
+		<None Remove="Resources\Images\backgroundpurple.png" />
+		<None Remove="Resources\Images\bazen.png" />
+		<None Remove="Resources\Images\bell.png" />
+
+		<None Remove="Resources\Images\beograd.png" />
+		<None Remove="Resources\Images\beogradNaVodi.png" />
+
+		<None Remove="Resources\Images\apartment2.png" />
+
+		<None Remove="Resources\Images\bg.png" />
+
+		<None Remove="Resources\Images\bonus.png" />
+
+		<None Remove="Resources\Images\book.png" />
+
+		<None Remove="Resources\Images\budva.png" />
+		<None Remove="Resources\Images\bookingpage.png" />
+
+		<None Remove="Resources\Images\bookingTravel.png" />
+
+		<None Remove="Resources\Images\budvica.png" />
+
+		<None Remove="Resources\Images\calendar.png" />
+
+		<None Remove="Resources\Images\camera.png" />
+
+		<None Remove="Resources\Images\clock.png" />
+
+		<None Remove="Resources\Images\clock2.png" />
+
+		<None Remove="Resources\Images\cloud.png" />
+
+		<None Remove="Resources\Images\cloud1.jpg" />
+
+		<None Remove="Resources\Images\coment.png" />
+
+		<None Remove="Resources\Images\complex2.png" />
+
+		<None Remove="Resources\Images\crowd.png" />
+
+		<None Remove="Resources\Images\delete.png" />
+
+		<None Remove="Resources\Images\demo2.png" />
+
+		<None Remove="Resources\Images\dislike.png" />
+		<None Remove="Resources\Images\edit.png" />
+		<None Remove="Resources\Images\false.png" />
+		<None Remove="Resources\Images\fica.png" />
+		<None Remove="Resources\Images\filter.png" />
+		<None Remove="Resources\Images\filter2.png" />
+		<None Remove="Resources\Images\filtering.png" />
+		<None Remove="Resources\Images\findtour.png" />
+		<None Remove="Resources\Images\finger.png" />
+		<None Remove="Resources\Images\first.png" />
+		<None Remove="Resources\Images\front.png" />
+		<None Remove="Resources\Images\frontpage.png" />
+		<None Remove="Resources\Images\garden1.png" />
+		<None Remove="Resources\Images\grade.png" />
+		<None Remove="Resources\Images\grade2.png" />
+		<None Remove="Resources\Images\guests.png" />
+		<None Remove="Resources\Images\helena.png" />
+		<None Remove="Resources\Images\home22.png" />
+		<None Remove="Resources\Images\hotel1.png" />
+		<None Remove="Resources\Images\language.png" />
+		<None Remove="Resources\Images\home.png" />
+		<None Remove="Resources\Images\home2.png" />
+		<None Remove="Resources\Images\home3.png" />
+
+		<None Remove="Resources\Images\litterbin.png" />
+
+
+		<None Remove="Resources\Images\gimnazija.png" />
+
+
+		<None Remove="Resources\Images\ljudi.jpeg" />
+		<None Remove="Resources\Images\location.png" />
+		<None Remove="Resources\Images\main.png" />
+		<None Remove="Resources\Images\medal.png" />
+		<None Remove="Resources\Images\menubar.png" />
+		<None Remove="Resources\Images\mika.png" />
+		<None Remove="Resources\Images\morequestion.png" />
+		<None Remove="Resources\Images\notification.png" />
+		<None Remove="Resources\Images\notification1.png" />
+		<None Remove="Resources\Images\noviSad.png" />
+		<None Remove="Resources\Images\owner.png" />
+		<None Remove="Resources\Images\page.png" />
+		<None Remove="Resources\Images\pdf1.png" />
+		<None Remove="Resources\Images\pen.png" />
+		<None Remove="Resources\Images\pera.png" />
+		<None Remove="Resources\Images\person.png" />
+		<None Remove="Resources\Images\plane.png" />
+		<None Remove="Resources\Images\planee.png" />
+		<None Remove="Resources\Images\planeicon.png" />
+		<None Remove="Resources\Images\planet.png" />
+		<None Remove="Resources\Images\plavo.jpg" />
+		<None Remove="Resources\Images\plavo2.jpg" />
+		<None Remove="Resources\Images\plus.png" />
+		<None Remove="Resources\Images\plus2.png" />
+		<None Remove="Resources\Images\plus3.png" />
+		<None Remove="Resources\Images\pointer.png" />
+		<None Remove="Resources\Images\gost1.jpg" />
+		<None Remove="Resources\Images\gost1k.jpg" />
+
+		<None Remove="Resources\Images\knezMihajlova.png" />
+
+
+		<None Remove="Resources\Images\mika.png" />
+		<None Remove="Resources\Images\nica.png" />
+		<None Remove="Resources\Images\noviSad.png" />
+		<None Remove="Resources\Images\owner.png" />
+
+		<None Remove="Resources\Images\ownerbackground.png" />
+		<None Remove="Resources\Images\pariz.png" />
+
+		<None Remove="Resources\Images\pera.png" />
+		<None Remove="Resources\Images\petrovaradin.png" />
+		<None Remove="Resources\Images\petrovaradinskaTvrdjava.png" />
+		<None Remove="Resources\Images\pobednikBg.png" />
+		<None Remove="Resources\Images\pozadina.jpeg" />
+		<None Remove="Resources\Images\profile.png" />
+		<None Remove="Resources\Images\push.png" />
+		<None Remove="Resources\Images\puzle.png" />
+		<None Remove="Resources\Images\question.png" />
+		<None Remove="Resources\Images\raiting.png" />
+		<None Remove="Resources\Images\raiting2.png" />
+		<None Remove="Resources\Images\ratetour.png" />
+		<None Remove="Resources\Images\report.png" />
+		<None Remove="Resources\Images\request2.png" />
+		<None Remove="Resources\Images\res.png" />
+		<None Remove="Resources\Images\reset.png" />
+		<None Remove="Resources\Images\restart.png" />
+		<None Remove="Resources\Images\review.png" />
+		<None Remove="Resources\Images\sbackground.png" />
+		<None Remove="Resources\Images\search.png" />
+		<None Remove="Resources\Images\searching-768x758-3.png" />
+		<None Remove="Resources\Images\searching.png" />
+		<None Remove="Resources\Images\slika1.png" />
+		<None Remove="Resources\Images\slika2.jpeg" />
+		<None Remove="Resources\Images\star.png" />
+		<None Remove="Resources\Images\star2.png" />
+		<None Remove="Resources\Images\stat.png" />
+		<None Remove="Resources\Images\stat2.png" />
+		<None Remove="Resources\Images\statistic.png" />
+		<None Remove="Resources\Images\statistics.png" />
+		<None Remove="Resources\Images\statistika.jpg" />
+		<None Remove="Resources\Images\ticket.png" />
+		<None Remove="Resources\Images\tours.png" />
+		<None Remove="Resources\Images\tracking.png" />
+
+		<None Remove="Resources\Images\travel.png" />
+		<None Remove="Resources\Images\true.png" />
+		<None Remove="Resources\Images\tutorial.png" />
+
+		<None Remove="Resources\Images\upcoming.png" />
+		<None Remove="Resources\Images\user.png" />
+		<None Remove="Resources\Images\userlogo.png" />
+		<None Remove="Resources\Images\view.png" />
+		<None Remove="Resources\Images\voucher.jpg" />
+		<None Remove="Resources\Images\voucher.png" />
+		<None Remove="Resources\Images\voucherticket.png" />
+		<None Remove="Resources\Images\wwod.jpg" />
+		<None Remove="Resources\Images\x.png" />
+		<None Remove="Resources\Images\zelena1.jpeg" />
+		<None Remove="Resources\Images\zelena2.jpeg" />
+		<None Remove="Resources\Images\zelena3.jpeg" />
+		<None Remove="Resources\Images\zika.png" />
+		<None Remove="Resources\Images\zuta1.jpg" />
+		<None Remove="Resources\Images\zuta3.jpg" />
+		<None Remove="Resources\Images\zuta5.jpg" />
+		<None Remove="Resources\Images\zuta_poz.jpeg" />
+		<None Remove="Resources\Images\zuta_poz2.jpg" />
+		<None Remove="Resources\Images\zutozeleno.png" />
+		<None Remove="WPF\View\search.png" />
+
+	</ItemGroup>
+
+	<ItemGroup>
+		<Content Include="Resources\Images\add.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Resources\Images\alarm.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Resources\Images\arrowrightleft.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Resources\Images\calendar.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Resources\Images\camera.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Resources\Images\coment.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Resources\Images\delete.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Resources\Images\edit.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Resources\Images\filter.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Resources\Images\morequestion.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Resources\Images\pen.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Resources\Images\puzle.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Resources\Images\question.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Resources\Images\raiting.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Resources\Images\raiting2.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Resources\Images\report.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Resources\Images\reset.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Resources\Images\stat2.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Resources\Images\tours.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Resources\Images\view.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Resources\Images\bonus.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Resources\Images\voucherticket.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
+
+	<ItemGroup>
+		<Resource Include="Resources\Images\abackground.png" />
+		<Resource Include="Resources\Images\add5.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Resources\Images\anasbackground.png" />
+		<Resource Include="Resources\Images\angela.png" />
+		<Resource Include="Resources\Images\apartmani.png" />
+		<Resource Include="Resources\Images\back2.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Resources\Images\background1.png" />
+		<Resource Include="Resources\Images\backgroundpurple.png">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Resources\Images\bazen.png" />
+		<Resource Include="Resources\Images\bonus.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+		<Content Include="Resources\Images\language.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Resources\Images\person.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Resources\Images\planeicon.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Resource Include="Resources\Images\budvica.png" />
+		<Resource Include="Resources\Images\dislike.png" />
+		<Resource Include="Resources\Images\helena.png" />
+		<Resource Include="Resources\Images\hotel1.png" />
+		<Resource Include="Resources\Images\pdf1.png" />
+		<Resource Include="Resources\Images\star2.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Resources\Images\cloud.png" />
+		<Resource Include="Resources\Images\cloud1.jpg" />
+		<Resource Include="Resources\Images\star.png" />
+		<Resource Include="Resources\Images\stat.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Resources\Images\clock2.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Resources\Images\complex2.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Resources\Images\crowd.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Resources\Images\demo2.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+		<Content Include="Resources\Images\filter2.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Resource Include="Resources\Images\home22.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Resources\Images\ljudi.jpeg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Resources\Images\medal.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Resources\Images\menubar.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Resources\Images\planee.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Resources\Images\plavo.jpg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Resources\Images\plavo2.jpg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Resources\Images\plus.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Resources\Images\plus2.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Resources\Images\plus3.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Resources\Images\pozadina.jpeg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Resources\Images\first.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Resources\Images\grade.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Resources\Images\grade2.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+		<Content Include="Resources\Images\loc2.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Resource Include="Resources\Images\finger.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Resources\Images\instr.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Resources\Images\notification.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Resources\Images\notification1.png" />
+		<Resource Include="Resources\Images\pointer.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="ceTe.DynamicPDF.CoreSuite.NET" Version="12.4.0" />
+		<PackageReference Include="Extended.Wpf.Toolkit" Version="4.5.0" />
+		<PackageReference Include="LiveCharts.Wpf" Version="0.9.7" />
+
+		<PackageReference Include="MvvmLightLibs" Version="5.4.1.1" />
+
+		<PackageReference Include="System.Windows.Interactivity.WPF" Version="2.0.20525" />
+
+		<PackageReference Include="ToastNotifications" Version="2.5.1" />
+
+		<PackageReference Include="ToastNotifications.Messages.Net5" Version="3.0.1" />
+
+	</ItemGroup>
+
+
+	<ItemGroup>
+
+		<Resource Include="Resources\Images\airplane.png" />
+		<Content Include="Resources\Images\alternative4.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Resource Include="Resources\Images\add1.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+
+		<Resource Include="Resources\Images\ana.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+
+		<Resource Include="Resources\Images\arrow.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+
+		<Resource Include="Resources\Images\bell.png"></Resource>
+
+		<Resource Include="Resources\Images\bg.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+
+		<Resource Include="Resources\Images\book.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Resource>
+
+		<Resource Include="Resources\Images\budva.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+
+		<Resource Include="Resources\Images\false.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+
+		<Resource Include="Resources\Images\fica.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+
+		<Resource Include="Resources\Images\findtour.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+
+		<Resource Include="Resources\Images\front.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+
+		<Resource Include="Resources\Images\frontpage.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+
+		<Resource Include="Resources\Images\gimnazija.png" />
+
+		<Resource Include="Resources\Images\litterbin.png"></Resource>
+		<Resource Include="Resources\Images\knezMihajlova.png">
+
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+
+		<Resource Include="Resources\Images\gost1.jpg">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+
+		<Resource Include="Resources\Images\gost1k.jpg">
+
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+
+		<Resource Include="Resources\Images\mika.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+
+		<Resource Include="Resources\Images\nica.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+
+		<Resource Include="Resources\Images\noviSad.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+
+		<Resource Include="Resources\Images\owner.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Resources\Images\ownerbackground.png"> </Resource>
+
+		<Resource Include="Resources\Images\pariz.png">
+
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+
+		<Resource Include="Resources\Images\pera.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+
+		<Resource Include="Resources\Images\petrovaradin.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+
+		<Resource Include="Resources\Images\pobednikBg.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+
+		<Resource Include="Resources\Images\plane.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+
+		<Resource Include="Resources\Images\planet.png" />
+		<Resource Include="Resources\Images\petrovaradinskaTvrdjava.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+
+		<Content Include="Resources\Images\profile.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+
+		<Resource Include="Resources\Images\push.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+
+		<Resource Include="Resources\Images\ratetour.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+
+		<Resource Include="Resources\Images\request2.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+
+
+		<Resource Include="Resources\Images\res.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+
+		<Resource Include="Resources\Images\restart.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+
+		<Resource Include="Resources\Images\review.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Resource>
+
+		<Resource Include="Resources\Images\sbackground.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+
+		<Resource Include="Resources\Images\search.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+
+		<Resource Include="Resources\Images\searching-768x758-3.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+
+		<Resource Include="Resources\Images\searching.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+
+		<Resource Include="Resources\Images\slika1.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+
+		<Resource Include="Resources\Images\slika2.jpeg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+
+		<Resource Include="Resources\Images\statistic.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+
+		<Resource Include="Resources\Images\statistics.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+
+		<Resource Include="Resources\Images\statistika.jpg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+
+		<Resource Include="Resources\Images\tracking.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+
+		<Resource Include="Resources\Images\travel.png" />
+
+		<Resource Include="Resources\Images\true.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+
+		<Resource Include="Resources\Images\tutorial.png" />
+
+
+				<Resource Include="Resources\Images\upcoming.png">
+				  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+				</Resource>
+
+				<Resource Include="Resources\Images\user.png">
+					<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+				</Resource>
+
+				<Resource Include="Resources\Images\userlogo.png">
+				  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+				</Resource>
+
+				<Resource Include="Resources\Images\voucher.jpg">
+				  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+				</Resource>
+
+				<Resource Include="Resources\Images\voucher.png">
+				  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+				</Resource>
+
+		<Resource Include="Resources\Images\wwod.jpg">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Resource>
+
+		<Resource Include="Resources\Images\x.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+
+		<Resource Include="Resources\Images\zelena1.jpeg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+
+		<Resource Include="Resources\Images\zelena2.jpeg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+
+		<Resource Include="Resources\Images\zelena3.jpeg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+
+		<Resource Include="Resources\Images\zika.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+
+
+		<PackageReference Include="Extended.Wpf.Toolkit" Version="4.5.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Resource Include="Resources\Images\apartment2.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Resources\Images\garden1.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Resources\Images\zuta1.jpg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Resources\Images\zuta3.jpg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Resources\Images\zuta5.jpg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Resources\Images\zuta_poz.jpeg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Resources\Images\zuta_poz2.jpg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Resources\Images\zutozeleno.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+
+
+
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Update="WPF\ViewModel\Guest1MainWindowViewModel.cs">
+			<Generator>MSBuild:Compile</Generator>
+		</Compile>
+	</ItemGroup>
+
+</Project>

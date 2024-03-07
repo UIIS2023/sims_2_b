@@ -1,0 +1,41 @@
+﻿<Page x:Class="InitialProject.WPF.View.ViewComplexTourRequest"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:InitialProject.WPF.View"
+      mc:Ignorable="d"  Height="592" Width="430"
+      Title="ViewComplexTourRequest">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="4*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Content="COMPLEX REQUESTS"  HorizontalAlignment="Center" FontSize="30" FontWeight="Bold" ></Label>
+        <DataGrid Grid.Row="1" Background="Transparent" MinRowHeight="50" Margin="20" BorderBrush="Transparent" Grid.ColumnSpan="2"
+                      ItemsSource="{Binding ComplexRequests, UpdateSourceTrigger=PropertyChanged}"
+                      SelectedItem="{Binding SelectedRequest, UpdateSourceTrigger=PropertyChanged}"
+                      AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single">
+            <DataGrid.Resources>
+                <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="#fffd81" />
+                    <Setter Property="BorderBrush" Value="Black"/>
+                    <Setter Property="BorderThickness" Value="1.2"/>
+                    <Setter Property="Height" Value="30"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    <Setter Property="FontWeight" Value="Bold"/>
+                </Style>
+            </DataGrid.Resources>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Guest name" Binding="{Binding Guest.Username}" Width="1*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Num of requests"  Binding="{Binding RequestNumber}" Width="1*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="1*"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Button Grid.Row="2" Width="160" Height="50" Background="#72e3c4" FontSize="17" Content="View details" Command="{Binding ViewRequestDetailsCommand}"></Button>
+
+    </Grid>
+</Page>

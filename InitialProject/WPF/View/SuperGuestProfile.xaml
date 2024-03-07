@@ -1,0 +1,54 @@
+﻿<Window x:Class="InitialProject.WPF.View.SuperGuestProfile"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InitialProject.WPF.View"
+        mc:Ignorable="d"
+        Title="SuperGuestProfile" Height="450" Width="800" WindowStartupLocation="CenterOwner">
+    <Grid Background="Wheat">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <GroupBox Grid.Row="0" Header="Super Guest" FontSize="30" BorderBrush="Black" BorderThickness="3" Background="Wheat" Margin="50,20,50,50" Grid.RowSpan="2" FontWeight="Bold">
+            
+            <Grid Margin="20,0,20,0"  Height="282" >
+                <Grid.Background>
+                    <ImageBrush ImageSource="/Resources/Images/wwod.jpg"></ImageBrush>
+                </Grid.Background>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="Duration :" FontSize="22" Grid.Column="0" Grid.Row="0" Margin="10,20,0,0" FontWeight="Normal"/>
+                <TextBlock Text="One year" FontSize="22" Grid.Column="1" Grid.Row="0" Margin="10,20,0,0" FontWeight="Normal"/>
+                <TextBlock Text="Bonus :" FontSize="22" Grid.Column="0" Grid.Row="1" Margin="10,10,0,0" FontWeight="Normal"/>
+                <TextBlock Text="{Binding Bonus , StringFormat={}{0}/5}" FontSize="22" Grid.Column="1" Grid.Row="1" Margin="10,10,0,0"/>
+                <TextBlock Text="Number of your reservations :" FontSize="22" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Margin="10,10,0,0" FontWeight="Normal"/>
+                <TextBlock Text="{Binding ReservationNumber}" FontSize="22" Grid.Column="1" Grid.Row="2" Margin="10,10,0,0"/>
+
+                <StackPanel Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,20,10,0">
+                    <Image Source="/Resources/Images/bonus.png" Height="70"/>
+                </StackPanel>
+                <StackPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,10,10,0">
+                    <Image Source="/Resources/Images/bonus.png" Height="50"/>
+                </StackPanel>
+                <StackPanel Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,10,10,0">
+                    <Image Source="/Resources/Images/bonus.png" Height="50"/>
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+
+        <StackPanel Grid.Row="1" Height="Auto" HorizontalAlignment="Right" Margin="0,52,50,10">
+            <Button Content="Close" Height="34" Background="BurlyWood"  Width="189" FontSize="20" Margin="0,20,10,0" VerticalAlignment="Bottom" Command="{Binding Close}"/>
+        </StackPanel>
+    </Grid>
+
+</Window>

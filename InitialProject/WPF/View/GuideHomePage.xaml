@@ -1,0 +1,79 @@
+﻿<Page x:Class="InitialProject.WPF.View.GuideHomePage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InitialProject.WPF.View"
+        mc:Ignorable="d"
+        Title="GuideHomePage" Height="592" Width="430">
+    <Page.Background>
+        <ImageBrush ImageSource="../../Resources/Images/zutozeleno.png" Stretch="UniformToFill"></ImageBrush>
+    </Page.Background>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"></RowDefinition> 
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="230"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Border HorizontalAlignment="Center" Height="80" Width="210" CornerRadius="30" Background="#fffd81" Margin="0 0 0 0">
+            <Label Margin="19 20 20 0" Content="Main page" HorizontalAlignment="Center" FontSize="32" FontWeight="Bold" ></Label>
+        </Border>
+        
+        <Label  Grid.Row="1" Content="About us" FontSize="24" FontWeight="Bold"></Label>
+        <Border Grid.Row="2"   CornerRadius="20">
+        <TextBlock Margin="8" FontSize="16"><Run Text="Our application allows you to plan, create and track your "/><LineBreak/><Run Text="tours in the best possible way. In case you need help"/><LineBreak/><Run Text="finding your way around, feel free to start the demo"/><LineBreak/><Run Text="mode bellow."/></TextBlock>
+        </Border>
+        <Button Grid.Row="3" Background="#fffd81" FontSize="15" Content="DEMO" HorizontalAlignment="Center" Height="40" Width="100"></Button>
+        
+        <GroupBox Grid.Row="4" Header="General statistics" FontSize="24" FontWeight="Bold" Margin="0 10 0 10" Background="#b3ffb3" Width="400">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1.5*"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0">
+                    <Label Margin="0 15 0 0" HorizontalAlignment="Left" FontSize="17">Top tour:</Label>
+                    <Label HorizontalAlignment="Left" FontSize="17">Num of upcoming tours:</Label>
+                    <Label HorizontalAlignment="Left" FontSize="17" FontWeight="Bold">Your avarage grade:</Label>
+                </StackPanel>
+                <StackPanel Grid.Column="1">
+                    <StackPanel  Orientation="Horizontal">
+                        <Label Margin="0 5 0 0"  FontSize="17" FontWeight="Normal" Content="{Binding TopTour.Name}" />
+                        <Button ToolTip="See more about top tours" Margin="3 0 0 0"  Background="Transparent" BorderBrush="Transparent" Width="50" Height="40" Command="{Binding TopCommand}">
+                            <WrapPanel >
+                                <Image Height="25" Source="../../Resources/Images/first.png"></Image>
+                                <!--TextBlock Margin="0 5 0 0" FontSize="11">see more</TextBlock-->
+                            </WrapPanel>
+                        </Button>
+                    </StackPanel>
+                    
+                    <StackPanel Orientation="Horizontal">
+                        <Label HorizontalAlignment="Left" FontSize="17" FontWeight="Normal" Content="{Binding NumOfUpcomingTours}" />
+                        <Button ToolTip="See more about upcoming tours" Margin="3 0 0 0"  Background="Transparent" BorderBrush="Transparent" Width="50" Height="40" Command="{Binding UpcomingCommand}">
+                            <WrapPanel >
+                                <Image Height="25" Source="../../Resources/Images/upcoming.png"></Image>
+                                <!--TextBlock Margin="0 5 0 0" FontSize="11">see more</TextBlock-->
+                            </WrapPanel>
+                        </Button>
+                    </StackPanel>
+                    <StackPanel  Orientation="Horizontal">
+                        <Label HorizontalAlignment="Left" FontSize="17" FontWeight="Normal" Content="{Binding AvarageGrade}" />
+                        <Button ToolTip="See more ratings" Margin="3 0 0 0"  Background="Transparent" BorderBrush="Transparent" Width="50" Height="40" Command="{Binding AllRatingsCommand}">
+                            <WrapPanel >
+                                <Image Height="25" Source="../../Resources/Images/grade2.png"></Image>
+                                <!--TextBlock Margin="0 5 0 0" FontSize="11">see more</TextBlock-->
+                            </WrapPanel>
+                        </Button>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+
+        <Button Grid.Row="5" Background="#fffd81" FontSize="15" Height="40" Width="100" Command="{Binding LogOutCommand}" Content="Log out" HorizontalAlignment="Right" Margin="0 0 25 0"></Button>
+        
+    </Grid>
+</Page>

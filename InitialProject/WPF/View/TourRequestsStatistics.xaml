@@ -1,0 +1,112 @@
+﻿<Page x:Class="InitialProject.WPF.View.TourRequestsStatistics"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:InitialProject.WPF.View" xmlns:viewmodel="clr-namespace:InitialProject.WPF.ViewModel" xmlns:converters="clr-namespace:InitialProject.WPF.Converters" 
+      mc:Ignorable="d" Height="900" Width="430"
+      Title="TourRequestsStatistics">
+    <Page.Background>
+        <ImageBrush ImageSource="../../Resources/Images/pozadina.jpeg" Stretch="UniformToFill"></ImageBrush>
+    </Page.Background>
+    <Page.Resources>
+        <converters:MonthConverter x:Key="MonthConverter" />
+    </Page.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1.5*"></RowDefinition>
+            <RowDefinition Height="4*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="5*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Image Margin="0 0 300 0" Source="../../Resources/Images/statistika.jpg"></Image>
+        <Label Margin="0 0 30 0" Content="REQUEST STATISTICS" HorizontalAlignment="Right" FontSize="30" FontWeight="Bold" ></Label>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" Margin="20 0 0 0">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Location:" FontSize="17" Margin="0 10 10 0"></Label>
+                    <ComboBox ItemsSource="{Binding Locations, Mode=TwoWay}" SelectedItem="{Binding SelectedLocation, Mode=TwoWay}" Height="30" Width="100"></ComboBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Grid.Row="1">
+                    <Label Content="Language:" FontSize="17" Margin="0 10 10 0"></Label>
+                    <ComboBox ItemsSource="{Binding Languages, Mode=TwoWay}" SelectedItem="{Binding SelectedLanguage, Mode=TwoWay}" Height="30"  Width="100"></ComboBox>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Column="1">
+                <Button BorderBrush="Black" Background="#fffd81" Margin="0 0 10 0" FontSize="20" Grid.Row="1" Command="{Binding FindCommand}" Height="45" Width="85">
+                    <WrapPanel HorizontalAlignment="Center">
+                        <Image Source="../../Resources/Images/filter.png" Height="30"></Image>
+                        <TextBlock FontWeight="Bold" Margin="0 0 10 0" FontSize="19">Find</TextBlock>
+                    </WrapPanel>
+                </Button>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="2">
+            <DataGrid Background="Transparent" MinRowHeight="50" Margin="40" BorderBrush="Transparent" Grid.ColumnSpan="2"
+                      ItemsSource="{Binding Statistics, UpdateSourceTrigger=PropertyChanged}"
+                      AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single">
+                <DataGrid.Resources>
+                    <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                        <Setter Property="Background" Value="#fffd81" />
+                        <Setter Property="BorderBrush" Value="Black"/>
+                        <Setter Property="BorderThickness" Value="1.2"/>
+                        <Setter Property="Height" Value="30"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        <Setter Property="FontWeight" Value="Bold"/>
+                    </Style>
+                </DataGrid.Resources>
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Year" Binding="{Binding Year}" Width="1*"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Number of requests"  Binding="{Binding TourRequestsCount}" Width="1*"></DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Horizontal" Grid.Row="3"  Margin="20 0 0 0">
+                <Label Content="Year:" FontSize="17" Margin="0 10 10 0"></Label>
+                <ComboBox ItemsSource="{Binding Years, Mode=TwoWay}" SelectedItem="{Binding SelectedYear, Mode=TwoWay}" Height="30"  Width="100"></ComboBox>
+            </StackPanel>
+            <Grid Grid.Column="1">
+                <Button BorderBrush="Black" Background="#fffd81" Margin="0 0 10 0" Grid.Row="1" Command="{Binding Find2Command}" Height="45" Width="85">
+                    <WrapPanel HorizontalAlignment="Center">
+                        <Image Source="../../Resources/Images/filter.png" Height="30"></Image>
+                        <TextBlock FontWeight="Bold"  Margin="0 0 10 0" FontSize="19">Find</TextBlock>
+                    </WrapPanel>
+                </Button>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="4">
+            <DataGrid Background="Transparent" MinRowHeight="50" Margin="40" BorderBrush="Transparent" Grid.ColumnSpan="2"
+                      ItemsSource="{Binding StatisticsMonthly, UpdateSourceTrigger=PropertyChanged}"
+                      AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single">
+                <DataGrid.Resources>
+                    <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                        <Setter Property="Background" Value="#fffd81" />
+                        <Setter Property="BorderBrush" Value="Black"/>
+                        <Setter Property="BorderThickness" Value="1.2"/>
+                        <Setter Property="Height" Value="30"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        <Setter Property="FontWeight" Value="Bold"/>
+                    </Style>
+                </DataGrid.Resources>
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Month" Binding="{Binding Month, Converter={StaticResource MonthConverter}}" Width="1*"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Number of requests"  Binding="{Binding PerMonthCount}" Width="1*"></DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </Grid>
+</Page>

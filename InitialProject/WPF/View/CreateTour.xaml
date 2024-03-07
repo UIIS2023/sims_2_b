@@ -1,0 +1,121 @@
+﻿<Page x:Class="InitialProject.View.CreateTour"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:local="clr-namespace:InitialProject.View" xmlns:viewmodel="clr-namespace:InitialProject.WPF.ViewModel" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" 
+      mc:Ignorable="d"
+        Title="CreateTour" Height="800" Width="430" >
+    <Page.Background>
+        <ImageBrush ImageSource="../../Resources/Images/zuta_poz2.jpg" Stretch="UniformToFill"></ImageBrush>
+    </Page.Background>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="9*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label Content="CREATE TOUR" HorizontalAlignment="Center" FontSize="30" FontWeight="Bold" ></Label>
+        <Grid Grid.Row="1" Grid.Column="0" Margin="30" Width="340">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Label Margin="0 0 0 18" Grid.Row="0" Grid.Column="0" Height="28" FontSize="14" FontWeight="Bold">Name:</Label>
+            <Label Margin="0 0 0 18" Grid.Row="1" Grid.Column="0" Height="28" FontSize="14" FontWeight="Bold">Country:</Label>
+            <Label Margin="0 0 0 18" Grid.Row="2" Grid.Column="0" Height="28" FontSize="14" FontWeight="Bold">City:</Label>
+            <Label Margin="0 0 0 18" Grid.Row="3" Grid.Column="0" Height="28" FontSize="14" FontWeight="Bold">Description:</Label>
+            <Label Margin="0 0 0 18" Grid.Row="4" Grid.Column="0" Height="28" FontSize="14" FontWeight="Bold">Language:</Label>
+            <Label Margin="0 0 0 18" Grid.Row="5" Grid.Column="0" Height="28" FontSize="14" FontWeight="Bold">Max guest number:</Label>
+            <Label Margin="0 0 0 18" Grid.Row="6" Grid.Column="0" Height="28" FontSize="14" FontWeight="Bold">Tour points:</Label>
+            <Label Margin="0 0 0 18" Grid.Row="7" Grid.Column="0" Height="28" FontSize="14" FontWeight="Bold">Date:</Label>
+            <Label Margin="0 0 0 18" Grid.Row="8" Grid.Column="0" Height="28" FontSize="14" FontWeight="Bold">Start time:</Label>
+            <Label Margin="0 0 0 18" Grid.Row="9" Grid.Column="0" Height="28" FontSize="14" FontWeight="Bold">Duration(in hours):</Label>
+            <Label Margin="0 0 0 18" Grid.Row="10" Grid.Column="0" Height="28" FontSize="14" FontWeight="Bold">Image urls:</Label>
+            <StackPanel Orientation="Vertical" Grid.Row="0" Grid.Column="1">
+                <TextBox Text="{Binding Path=Tour.Name, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" Height="28"></TextBox>
+                <TextBlock Text="{Binding Tour.ValidationErrors[Name]}" Foreground="Red" FontWeight="Bold" TextAlignment="Center" Height="30"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1">
+                <ComboBox  Name="ComboBoxCountry" SelectedIndex="0" SelectedItem="{Binding SelectedCountry, Mode=TwoWay}" ItemsSource="{Binding Countries }"
+                     Height="28" ></ComboBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="1">
+                <ComboBox Name="ComboboxCity" ItemsSource="{Binding Cities}" SelectedItem="{Binding SelectedCity, Mode=TwoWay}"
+                     Height="28"  ></ComboBox>
+                <TextBlock  Text="{Binding ValidationResult}" Foreground="Red" FontWeight="Bold" TextAlignment="Center" Height="30"/>
+            </StackPanel>
+
+            
+            <StackPanel Grid.Row="3" Grid.Column="1">
+                <TextBox Text="{Binding Path=Tour.Descripiton, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"
+                     Height="28"></TextBox>
+                <TextBlock Text="{Binding Tour.ValidationErrors[Descripiton]}" Foreground="Red" TextAlignment="Center" FontWeight="Bold" Height="30"/>
+            </StackPanel>
+            <StackPanel  Grid.Row="4" Grid.Column="1" >
+                <TextBox Text="{Binding Path=Tour.Language, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" Height="28"></TextBox>
+                <TextBlock Text="{Binding Tour.ValidationErrors[Language]}" Foreground="Red" TextAlignment="Center" FontWeight="Bold" Height="30"/>
+            </StackPanel>
+            <StackPanel Grid.Row="5" Grid.Column="1">
+                <xctk:IntegerUpDown Height="28"  Text="{Binding Path=Tour.MaxGuestNum, Mode=OneWayToSource}"></xctk:IntegerUpDown>
+                <TextBlock Text="{Binding Tour.ValidationErrors[MaxGuestNum]}" Foreground="Red" TextAlignment="Center" FontWeight="Bold" Height="30"/>
+            </StackPanel>
+           
+            
+            <StackPanel Grid.Row="6" Grid.Column="1" >
+                <TextBox Text="{Binding Path=Tour.Points, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" Height="28"></TextBox>
+                <TextBlock Text="{Binding Tour.ValidationErrors[Points]}" Foreground="Red" TextAlignment="Center" FontWeight="Bold" Height="30"/>
+            </StackPanel>
+            <StackPanel  Grid.Row="7" Grid.Column="1">
+                <DatePicker SelectedDate="{x:Static sys:DateTime.Today}" DisplayDateStart="{x:Static sys:DateTime.Today}" Text="{Binding Path=Date, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"
+                     Height="33"></DatePicker>
+            </StackPanel>
+
+            <StackPanel Grid.Row="8" Grid.Column="1">
+                <ComboBox Name="ComboBoxTime" Height="28" Text="{Binding Path=StartTime, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}">
+                    <ComboBoxItem Content="_8AM"/>
+                    <ComboBoxItem Content="_10AM"/>
+                    <ComboBoxItem Content="_12PM"/>
+                    <ComboBoxItem Content="_2PM"/>
+                    <ComboBoxItem Content="_4PM"/>
+                    <ComboBoxItem Content="_6PM"/>
+                </ComboBox>
+                <TextBlock  Text="{Binding ValidationResult2}" Foreground="Red" FontWeight="Bold" TextAlignment="Center" Height="30"/>
+            </StackPanel>
+                
+            <StackPanel Grid.Row="9" Grid.Column="1" >
+                <xctk:IntegerUpDown Height="28" Text="{Binding Path=Tour.DurationS, Mode=OneWayToSource}"></xctk:IntegerUpDown>
+                <TextBlock Text="{Binding Tour.ValidationErrors[DurationS]}" Foreground="Red" TextAlignment="Center" FontWeight="Bold" Height="30"/>
+            </StackPanel>
+            <StackPanel Grid.Row="10" Grid.Column="1" >
+                <!--TextBox Text="{Binding Path=Tour.ImageUrls, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"
+                     Height="28"></TextBox>
+                <TextBlock Text="{Binding Tour.ValidationErrors[ImageUrls]}" Foreground="Red" TextAlignment="Center" FontWeight="Bold" Height="30"/-->
+                <Button Height="28" Command="{Binding AddImagesCommand}">Add images</Button>
+            </StackPanel>
+        </Grid>
+        <WrapPanel Grid.Row="2" HorizontalAlignment="Center">
+            <Button Background="#72e3c4" FontSize="17"  Content="Cancel" IsCancel="True" Margin="20, 5, 20, 5" Width="90" Height="30"
+                Command="{Binding CancelTourCommand}"/>
+            <Button Background="#72e3c4" FontSize="17"  Content="Create" IsDefault="True" Margin="20, 5, 20, 5" Width="90" Height="30"
+                Command="{Binding CreateTourCommand}"/>
+        </WrapPanel>
+    </Grid>
+</Page>

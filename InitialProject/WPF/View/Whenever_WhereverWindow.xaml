@@ -1,0 +1,176 @@
+﻿<Window x:Class="InitialProject.WPF.View.Whenever_WhereverWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+
+        xmlns:local="clr-namespace:InitialProject.WPF.View"
+        mc:Ignorable="d"
+       Title="Whenever_Wherever" Height="600" Width="1200" 
+        WindowStartupLocation="CenterScreen" Background="Beige">
+
+    <Window.Resources>
+        <Style TargetType="{x:Type Label}">
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="#444"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Margin" Value="10"/>
+        </Style>
+        <Style TargetType="{x:Type Border}">
+            <Setter Property="BorderBrush" Value="Azure"/>
+            <Setter Property="BorderThickness" Value="5"/>
+            <Setter Property="CornerRadius" Value="10"/>
+        </Style>
+        <Style TargetType="{x:Type Grid}">
+            <Setter Property="Margin" Value="10"/>
+        </Style>
+        <Style TargetType="{x:Type DatePicker}">
+            <Setter Property="Margin" Value="10"/>
+        </Style>
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="BorderBrush" Value="#ccc"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Background" Value="#fff"/>
+            <Setter Property="Foreground" Value="#333"/>
+            <Setter Property="FontSize" Value="14"/>
+        </Style>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="BorderBrush" Value="#ccc"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Background" Value="#f5f5f5"/>
+            <Setter Property="Foreground" Value="#333"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+        <Style TargetType="{x:Type WrapPanel}">
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="Background" Value="#f5f5f5"/>
+
+        </Style>
+    </Window.Resources>
+    <Border BorderBrush="BurlyWood"  BorderThickness="5" Margin="0,0,0,-17">
+        <StackPanel>
+            <Border BorderThickness="1" BorderBrush="LightGray" Margin="10" Padding="5"  >
+                <Border.Background>
+                    <ImageBrush  Stretch="Fill" ImageSource="/Resources/Images/wwod.jpg"/>
+                </Border.Background>
+                <TextBlock Text="WHENEVER/WHEREVER 🗺️" FontSize="48" FontWeight="Bold" Margin="5" TextAlignment="Center"  FontFamily="Arial Narrow" TextDecorations="{x:Null}" />
+            </Border>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="4*"></RowDefinition>
+                    <RowDefinition Height="3*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1.5*"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <GroupBox Grid.Row="0" Header="Choose your destination ✈️" FontSize="20" BorderBrush="BurlyWood" BorderThickness="2" Grid.ColumnSpan="2" Margin="658,0,0,10">
+                    <DataGrid Padding="10 10 10 10" Margin="17,39,17,27" Background="Wheat" FontSize="15" ItemsSource="{Binding AvailablePeriods, UpdateSourceTrigger=PropertyChanged}" AutoGenerateColumns="False" SelectedItem="{Binding SelectedPeriod, UpdateSourceTrigger=PropertyChanged}">
+                        <DataGrid.Columns >
+                            <DataGridTextColumn Header="Name" Width="1*" Binding="{Binding Name}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="StartDate" Width="1*" Binding="{Binding StartDate}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="EndDate" Width="1*" Binding="{Binding EndDate}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Location" Width="2*">
+                                <DataGridTextColumn.Binding>
+                                    <MultiBinding StringFormat="{}{0}, {1}">
+                                        <Binding Path="City" />
+                                        <Binding Path="Country" />
+                                    </MultiBinding>
+                                </DataGridTextColumn.Binding>
+                            </DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                </GroupBox>
+
+                <Border BorderBrush="BurlyWood"  BorderThickness="5" Margin="0,0,36,0">
+
+                    <Grid Grid.Row="0" Grid.Column="0" Height="300"   Margin="64,13,64,14"  >
+                        <Grid.Background>
+                            <ImageBrush  Stretch="Fill" ImageSource="/Resources/Images/wwod.jpg"/>
+                        </Grid.Background>
+                        <Grid.RowDefinitions >
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+
+
+                        </Grid.ColumnDefinitions>
+
+
+                        <Label Grid.Row="0" Grid.Column="0" Height="30" Width="150">Choose start date</Label>
+                        <Label Grid.Row="1" Grid.Column="0" Height="30" Width="150" >Choose end date</Label>
+                        <Label Grid.Row="2" Grid.Column="0" Height="30" Margin="25,22,10,23">Choose number of days</Label>
+
+                        <Label Grid.Row="3" Grid.Column="0" Height="30" Margin="17,23,195,22" Grid.ColumnSpan="2">Choose number of guests</Label>
+
+                        <StackPanel Orientation="Vertical" Grid.Row="0" Grid.Column="1"  >
+
+                            <DatePicker DisplayDateStart="{x:Static sys:DateTime.Today}" SelectedDate="{Binding startDate}" Cursor="Hand" Height="32" x:Name="startDate" Width="167"/>
+
+
+                        </StackPanel>
+                        <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1" Margin="29,0,32,0"  >
+                            <DatePicker  SelectedDateFormat="Short" DisplayDateStart="{x:Static sys:DateTime.Today}"   SelectedDate="{Binding endDate}" Cursor="Hand"  Height="32"  x:Name="endDate" Width="175"/>
+
+
+
+
+
+                        </StackPanel>
+
+                        <xctk:IntegerUpDown Watermark="1" Grid.Row="2"     Grid.Column="1" Text="{Binding TxtDaysNum}"
+                     Height="30" VerticalAlignment="Center" x:Name="TxtDaysNum" RenderTransformOrigin="0.494,0.577" Margin="169,0,52,0"/>
+
+
+
+
+                        <xctk:IntegerUpDown Watermark="1" Grid.Row="3"  Grid.Column="1" 
+                     Height="30" VerticalAlignment="Center" x:Name="TxtNumGuest" Text="{Binding TxtNumGuest}"  Margin="169,0,52,0"/>
+
+                    </Grid>
+                </Border>
+
+                <GroupBox Grid.Row="1" Grid.Column="1" Margin="0,0,24,39" Header="Add Reservation"  BorderBrush="Black" BorderThickness="2"  FontSize="22">
+
+
+                    <Button Grid.Column="1" Content="Reserve" IsDefault="True" Margin="79,0,68,0" Command="{Binding ReserveAccommodation}"  Background="Chocolate"/>
+                </GroupBox>
+
+                <GroupBox Grid.Row="1" Margin="0,0,36,39" Header="Options"  BorderBrush="Black" BorderThickness="2" Grid.RowSpan="2" FontSize="22">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Button Grid.Column="0" Content="Cancel" IsCancel="True" Margin="20, 5, 20, 5" Command="{Binding CancelCreate}" Background="BurlyWood"/>
+                        <Button Grid.Column="1" Content="Check" IsDefault="True" Margin="20, 5, 20, 5" Command="{Binding CheckAccommodation}" x:Name="BlockedButton"  Background="BurlyWood"/>
+                    </Grid>
+                </GroupBox>
+
+
+
+
+            </Grid>
+        </StackPanel>
+    </Border>
+
+
+</Window>

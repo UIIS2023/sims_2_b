@@ -1,0 +1,107 @@
+﻿<Window x:Class="InitialProject.WPF.View.Guest1Profile"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InitialProject.WPF.View"
+        mc:Ignorable="d"
+        Title="Guest1Profile" Height="450" Width="800">
+    <Grid >
+        <Grid.Background>
+            <ImageBrush ImageSource="/Resources/Images/wwod.jpg"></ImageBrush>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <GroupBox Header="User Picture" FontSize="30" BorderThickness="3" BorderBrush="Brown" Background="#FFF1DBC1" Margin="10,0,25,0" FontWeight="Bold" >
+                <Image Height="150" Width="250" Source="{Binding UserImageSource}"></Image>
+            </GroupBox>
+
+            <GroupBox Grid.Column="1" Header="Super Guest" Foreground="Firebrick" FontSize="30" BorderThickness="3" BorderBrush="Brown" Background="Wheat" Margin="54,0,28,0" FontWeight="Bold">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"  Command="{Binding SuperGuest}">
+                        <StackPanel Orientation="Horizontal" Height="146">
+                            <Image Source="/Resources/Images/bonus.png" Width="Auto" Height="135" Margin="5" Opacity="{Binding ImageOpacity}" >
+                    
+                                    <Image.Effect>
+                                        <DropShadowEffect Color="Red" BlurRadius="20" Opacity="{Binding ImageEffectOpacity}"/>
+                                    </Image.Effect>
+                                    <Image.Style>
+                                        <Style TargetType="Image">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding IsEnabled}" Value="False">
+                                                    <Setter Property="Opacity" Value="0.5"/>
+                                                    <Setter Property="Effect" Value="{x:Null}"/>
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding IsEnabled}" Value="True">
+                                                    <Setter Property="Opacity" Value="1"/>
+                                                    <Setter Property="Effect">
+                                                        <Setter.Value>
+                                                            <DropShadowEffect Color="Red" BlurRadius="20" Opacity="1"/>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Image.Style>
+                                </Image>
+
+                        
+                        </StackPanel>
+
+
+
+                    </Button>
+                    <Button  BorderBrush="Wheat"  VerticalAlignment="Bottom" Command="{Binding Instruction}" Margin="0,0,0,10" Background="Wheat">
+                        <Image Source="/Resources/Images/instr.png" Height="43" VerticalAlignment="Stretch" Width="43" HorizontalAlignment="Center" Margin="0,0,0,10" />
+                    </Button>
+                </StackPanel>
+
+            </GroupBox>
+        </Grid>
+
+        <GroupBox Header="Info"  FontSize="30" BorderThickness="3" BorderBrush="Brown" Background="Wheat" Margin="10,217,28,10" Grid.RowSpan="2" FontWeight="Bold" >
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0" Margin="20,0,0,0"  >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+
+
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"/>
+                      
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Row="0"  FontSize="20" Text="Name: " FontWeight="Normal" />
+                    <TextBlock Grid.Row="0" Grid.Column="1" FontSize="20" Text="{Binding LogedInUser.Username}" FontWeight="Normal"/>
+                    <TextBlock  Grid.Row="1" FontWeight="Normal"  FontSize="20" Text="Age: "/>
+                    <TextBlock Grid.Row="1" Grid.Column="1" FontSize="20" Text="{Binding LogedInUser.Age}" FontWeight="Normal"/>
+                    <TextBlock Grid.Row="2" FontWeight="Normal" FontSize="20" Text="Role: " />
+                    <TextBlock Grid.Row="2" Grid.Column="2" FontSize="20" Text="{Binding LogedInUser.Role}" FontWeight="Normal"/>
+                </Grid>
+                <StackPanel Grid.Column="1" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="56,0,0,0" Width="299" >
+                    <Button Content="Instructions" Margin="0,0,0,25" Background="BurlyWood" BorderBrush="Brown" BorderThickness="2"  FontWeight="Normal" Width="278"></Button>
+                    <Button Content="Close" Background="BurlyWood" BorderBrush="Brown" BorderThickness="2" FontWeight="Normal" Width="279" Command="{Binding Close}"></Button>
+                </StackPanel>
+            </Grid>
+
+        </GroupBox>
+    </Grid>
+
+</Window>

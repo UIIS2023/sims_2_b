@@ -1,0 +1,93 @@
+﻿<UserControl x:Class="InitialProject.WPF.View.TourStatisticsGuest2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+             mc:Ignorable="d" Width="770" Height="580">
+    <Grid HorizontalAlignment="Stretch">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="61*"/>
+            <RowDefinition Height="22*"/>
+        </Grid.RowDefinitions>
+
+        <GroupBox Header="Number of ACCEPTED requests" Background="AliceBlue" FontWeight="Bold"  Margin="0,53,3,91" BorderBrush="DarkBlue" Foreground="DarkBlue" Grid.Row="1" Grid.RowSpan="2"/>
+
+
+        <GroupBox Header="Average number of guests in ACCEPTED requests" Background="AliceBlue" FontWeight="Bold" Margin="0,22,3,0" BorderBrush="DarkBlue" Foreground="DarkBlue" Grid.Row="2"/>
+
+        <GroupBox Header="Percentage of accepted and rejacted SIMPLE requests" Background="AliceBlue" FontWeight="Bold" Margin="0,0,3,252" BorderBrush="DarkBlue" Foreground="DarkBlue" Grid.Row="0" Grid.RowSpan="2" Height="220" VerticalAlignment="Bottom"/>
+
+        <Label FontWeight="Bold" Foreground="DarkBlue" Margin="20,283,596,91" Grid.Row="1" Grid.RowSpan="2">FOR EVERY LANGUAGE...</Label>
+
+        <Label FontWeight="Bold" Foreground="DarkBlue" Margin="49,56,575,24" Grid.Row="2">IN GENERAL...</Label>
+        <TextBlock Text="{Binding TopYearGuestNum}" Foreground="DarkBlue" FontWeight="Bold"  Margin="620,56,103,24" Grid.Row="2"/>
+        <TextBlock Text="{Binding TopGuestNum}" Foreground="DarkBlue" FontWeight="Bold" Margin="152,59,575,36" Grid.Row="2"/>
+
+        <Label FontWeight="Bold" Foreground="DarkBlue" Content="FOR SELECTED YEAR..." Margin="345,13,230,261" Grid.Row="1" />
+        <ComboBox SelectedIndex="0" SelectedItem="{Binding SelectedYear, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding Years}" Margin="545,13,140,261" Grid.Row="1" />
+        <Label FontWeight="Bold" Foreground="DarkBlue" Content="FOR EVERY LOCATION..." Margin="345,283,230,91" Grid.Row="1" Grid.RowSpan="2" />
+
+        <Label FontWeight="Bold" Foreground="DarkBlue" Content="IN GENERAL..." Margin="20,13,507,261" Grid.Row="1"/>
+
+        <Label FontWeight="Bold" Foreground="DarkBlue" Content="FOR SELECTED YEAR..." Margin="364,54,251,24" Grid.Row="2" />
+        <ComboBox SelectedIndex="0" SelectedItem="{Binding SelectedYearDown, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding Years}" Margin="519,54,162,24" Grid.Row="2" />
+        <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Height="220" Width="334"
+              Margin="50,10,0,0" Grid.RowSpan="2">
+            <lvc:PieChart HorizontalAlignment="Center" VerticalAlignment="Top" Height="192" Width="330" 
+                           Series="{Binding GeneralPie}" LegendLocation="Right">
+                <lvc:PieChart.ChartLegend>
+                    <lvc:DefaultLegend VerticalAlignment="Center" HorizontalAlignment="Right" BulletSize="15" Margin="0 0 0 0"></lvc:DefaultLegend>
+                </lvc:PieChart.ChartLegend>
+            </lvc:PieChart>
+
+
+        </Grid>
+
+        <Grid HorizontalAlignment="Right" VerticalAlignment="Top" Height="188" Width="376"
+              Margin="0,10,10,0" Grid.RowSpan="2">
+            <!-- <lvc:CartesianChart Series="{Binding SelectedYearPie}" LegendLocation="Bottom" Width="360" HorizontalAlignment="Left" Margin="0,0,0,23">
+                    <lvc:CartesianChart.DataTooltip>
+                        <lvc:DefaultTooltip Background="#f5f5f5" Foreground="Black"/>
+                    </lvc:CartesianChart.DataTooltip>
+                    <lvc:CartesianChart.AxisX>
+                        <lvc:Axis Title="{Binding XLabelName}" Labels="{Binding Labels}"></lvc:Axis>
+                    </lvc:CartesianChart.AxisX>
+                    <lvc:CartesianChart.AxisY>
+                        <lvc:Axis Title="Number of request" MinValue="0" Foreground="Black" LabelFormatter="{Binding Formatter}"></lvc:Axis>
+                    </lvc:CartesianChart.AxisY>
+                </lvc:CartesianChart> -->
+            <lvc:PieChart HorizontalAlignment="Center" VerticalAlignment="Center" Height="183" Width="376" Margin="-67 0 0 0"
+                           Series="{Binding SelectedYearPie, Mode=OneWay}" LegendLocation="Right">
+                <lvc:PieChart.ChartLegend >
+                    <lvc:DefaultLegend VerticalAlignment="Center" HorizontalAlignment="Right" BulletSize="15" Margin="-50 0 0 0"></lvc:DefaultLegend>
+                </lvc:PieChart.ChartLegend>
+            </lvc:PieChart>
+
+        </Grid>
+
+        <Grid HorizontalAlignment="Right" VerticalAlignment="Top" Height="230" Width="400"
+              Margin="0,250,0,0" Grid.RowSpan="2">
+            <lvc:PieChart HorizontalAlignment="Center" VerticalAlignment="Center" Height="237" Width="356" Margin="-20 20 -50 20"
+                           Series="{Binding LocationPie, Mode=OneWay}" LegendLocation="Right">
+                <lvc:PieChart.ChartLegend>
+                    <lvc:DefaultLegend VerticalAlignment="Center" HorizontalAlignment="Right" BulletSize="15" Margin="0 0 0 0"></lvc:DefaultLegend>
+                </lvc:PieChart.ChartLegend>
+            </lvc:PieChart>
+
+        </Grid>
+
+        <Grid HorizontalAlignment="Right" VerticalAlignment="Top" Height="250" Width="386"
+              Margin="0,240,380,0" Grid.RowSpan="2">
+            <lvc:PieChart HorizontalAlignment="Center" VerticalAlignment="Top" Height="190" Width="306" 
+                           Series="{Binding LanguagePie, Mode=OneWay}" LegendLocation="Right" Margin="0,29,0,0">
+                <lvc:PieChart.ChartLegend>
+                    <lvc:DefaultLegend VerticalAlignment="Center" HorizontalAlignment="Right" BulletSize="15" Margin="-20 0 0 0"></lvc:DefaultLegend>
+                </lvc:PieChart.ChartLegend>
+            </lvc:PieChart>
+
+        </Grid>
+    </Grid>
+
+</UserControl>

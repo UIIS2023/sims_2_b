@@ -1,0 +1,107 @@
+﻿<Window x:Class="InitialProject.WPF.View.RateTour"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewmodel="clr-namespace:InitialProject.WPF.ViewModel"
+        mc:Ignorable="d"
+        Title="RateTour" Height="450" Width="800" WindowStartupLocation = "CenterScreen">
+
+    <Grid>
+
+        <Grid.Background>
+            <ImageBrush ImageSource="../../Resources/Images/raiting2.png"  Stretch="Fill"/>
+    </Grid.Background>
+        <GroupBox Header="Rate tour and guide&#xA;" BorderThickness="2" FontSize="13" Foreground="Black" BorderBrush="Black" Margin="10,10,10,103">
+            <Grid Height="262" Margin="50,0,26,0">
+                <Grid.RowDefinitions >
+                    <RowDefinition Height="50*"></RowDefinition>
+                    <RowDefinition Height="50*"></RowDefinition>
+                    <RowDefinition Height="50*"/>
+                    <RowDefinition Height="50*"></RowDefinition>
+                    <RowDefinition Height="50*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="76*"></ColumnDefinition>
+                    <ColumnDefinition Width="97*"/>
+
+
+                </Grid.ColumnDefinitions>
+
+
+                <Label Grid.Row="0" Width="240" Grid.Column="0" Margin="24,12,-180,12" >Knowledge of guide:
+                </Label>
+                <Label Grid.Row="1" Width="240" Grid.Column="0" Margin="24,12,-180,12" >Language of guide:
+                </Label>
+                <Label Grid.Row="2" Width="240" Grid.Column="0" Margin="24,12,-180,12" >How interesting the tour was:
+                </Label>
+                <Label Grid.Row="3" Width="240" Grid.Column="0" Margin="24,12,-180,12" >Your comment:
+                </Label>
+                <Label Grid.Row="4" Width="240" Grid.Column="0" Margin="24,12,-180,12" >Upload photos:
+                </Label>
+
+            
+                <StackPanel Orientation="Vertical" Grid.Row="0" Grid.Column="1">
+                    
+                        <StackPanel Margin="-50,0,20,20" Orientation="Horizontal" Height="27" Width="240">
+        
+                            <RadioButton Name="One" Content="1" GroupName="KnowledgeRadios" IsChecked="{Binding RadioButton1IsChecked}" Width="37" Margin="10,5,0,0" Command="{Binding KnoledgeRadiosCommand}"/>
+                            <RadioButton Name="Two" Content="2" GroupName="KnowledgeRadios" IsChecked="{Binding RadioButton2IsChecked}" Margin="10,5,0,0" Command="{Binding KnoledgeRadiosCommand}" />
+                            <RadioButton Name="Three" Content="3" GroupName="KnowledgeRadios" IsChecked="{Binding RadioButton3IsChecked}" Margin="20,5,0,0" Command="{Binding KnoledgeRadiosCommand}" />
+                            <RadioButton Name="Four" Content="4" GroupName="KnowledgeRadios" IsChecked="{Binding RadioButton4IsChecked}" Margin="20,5,0,0" Command="{Binding KnoledgeRadiosCommand}" />
+                            <RadioButton Name="Five" Content="5" GroupName="KnowledgeRadios" IsChecked="{Binding RadioButton5IsChecked}" Margin="20,5,0,0" Command="{Binding KnoledgeRadiosCommand}" />
+                       
+                    </StackPanel>
+                
+                    <TextBlock Text="{Binding TourGuideReviews.ValidationErrors[GuideKnowledge]}" Foreground="Red" TextAlignment="Center" Height="17" Margin="-40,-17,20,20" Width="230"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1">
+                    <StackPanel Margin="-50,0,20,20" Orientation="Horizontal" Height="27" Width="240">
+                        <RadioButton Name="One2" Content="1" GroupName="LanguageRadios" IsChecked="{Binding RadioButton6IsChecked}" Width="37" Margin="10,5,0,0" Command="{Binding LanguageRadiosCommand}"/>
+                        <RadioButton Name="Two2" Content="2" GroupName="LanguageRadios" IsChecked="{Binding RadioButton7IsChecked}" Margin="10,5,0,0" Command="{Binding LanguageRadiosCommand}" />
+                        <RadioButton Name="Three2" Content="3" GroupName="LanguageRadios" IsChecked="{Binding RadioButton8IsChecked}" Margin="20,5,0,0" Command="{Binding LanguageRadiosCommand}" />
+                        <RadioButton Name="Four2" Content="4" GroupName="LanguageRadios" IsChecked="{Binding RadioButton9IsChecked}" Margin="20,5,0,0" Command="{Binding LanguageRadiosCommand}" />
+                        <RadioButton Name="Five2" Content="5" GroupName="LanguageRadios" IsChecked="{Binding RadioButton10IsChecked}" Margin="20,5,0,0" Command="{Binding LanguageRadiosCommand}" />
+                    </StackPanel>
+                    <TextBlock Text="{Binding TourGuideReviews.ValidationErrors[GuideLanguage]}" Foreground="Red" TextAlignment="Center" Margin="-70,-20,0,20" Height="20" Width="230"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="1">
+                    <StackPanel Margin="-50,0,20,20" Orientation="Horizontal" Height="27" Width="240">
+                        <RadioButton Name="One3" Content="1" GroupName="InterestingRadios" IsChecked="{Binding RadioButton11IsChecked}" Width="37" Margin="10,5,0,0" Command="{Binding InterestingRadiosCommand}"/>
+                        <RadioButton Name="Two3" Content="2" GroupName="InterestingRadios" IsChecked="{Binding RadioButton12IsChecked}" Margin="10,5,0,0" Command="{Binding InterestingRadiosCommand}" />
+                        <RadioButton Name="Three3" Content="3" GroupName="InterestingRadios" IsChecked="{Binding RadioButton13IsChecked}" Margin="20,5,0,0" Command="{Binding InterestingRadiosCommand}" />
+                        <RadioButton Name="Four3" Content="4" GroupName="InterestingRadios" IsChecked="{Binding RadioButton14IsChecked}" Margin="20,5,0,0" Command="{Binding InterestingRadiosCommand}" />
+                        <RadioButton Name="Five3" Content="5" GroupName="InterestingRadios" IsChecked="{Binding RadioButton15IsChecked}" Margin="20,5,0,0" Command="{Binding InterestingRadiosCommand}" />
+                    </StackPanel>
+                    <TextBlock Text="{Binding TourGuideReviews.ValidationErrors[InterestingTour]}" Foreground="Red" TextAlignment="Center" Margin="-70,-20,0,20" Height="20" Width="230"/>
+                </StackPanel>
+
+
+                <StackPanel Orientation="Vertical" Grid.Row="3" Grid.Column="1">
+                    <TextBox 
+                     Height="30" Width="210" x:Name="TxtComment" BorderBrush="Black" Margin="-40,0,39,23" Text="{Binding TourGuideReviews.Comment, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" />
+                    <TextBlock Text="{Binding TourGuideReviews.ValidationErrors[Comment]}"  Foreground="Red" TextAlignment="Center" Margin="-60,-20,0,20" Height="20" Width="230"/>
+
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" Grid.Row="4" Grid.Column="1" Margin="0,0,0,-5">
+
+                </StackPanel>
+
+                <Button Grid.Column="1" Margin="-40,12,39,12" Width="210" Grid.Row="4" BorderBrush="Black" Background="White" Command="{Binding AddImagesCommand}">Add images</Button>
+
+
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Options" Margin="10,331,10,10" BorderThickness="2" FontSize="13" Foreground="Black" BorderBrush="Black">
+            <StackPanel Margin="0,-6,0,0" Height="71">
+                <Button Content="Submit" Command="{Binding SubmitCommand}" BorderBrush="Black" Background="White" Foreground="Black" Margin="-150, 15, 0, 0" Height="30" Width="162">
+                </Button>
+                <Button Content="Give up rating" Background="White" BorderBrush="Black" Foreground="Black" Command="{Binding GiveUpRatingCommand}" Margin="200, -30, 0, 0" Height="30" Width="177">
+                </Button>
+            </StackPanel>
+        </GroupBox>
+    </Grid>
+</Window>

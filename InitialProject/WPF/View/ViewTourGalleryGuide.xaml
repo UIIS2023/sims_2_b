@@ -1,0 +1,82 @@
+﻿<Page x:Class="InitialProject.View.ViewTourGalleryGuide"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InitialProject.View"
+        mc:Ignorable="d"
+        Title="ViewTourGalleryGuide" Height="592" Width="430">
+    <Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.5*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <Border BorderThickness="0 0 1 0" Background="#a1eba7" Margin="-10,0,10,0" Grid.RowSpan="2">
+
+            </Border>
+
+            <Grid Grid.Column="0" Grid.RowSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" HorizontalAlignment="Center" FontSize="27" FontWeight="Bold"  Text="{Binding SelectedTour.Name}" Foreground="Black"></TextBlock>
+
+                <Separator HorizontalAlignment="Stretch" Margin="0,27" Background="Black"  Height="10"/>
+                <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Visible">
+                    <WrapPanel  x:Name="ImagesPanel" Orientation="Horizontal">
+
+
+
+                    </WrapPanel>
+                </ScrollViewer>
+            </Grid>
+
+
+            <Grid Grid.Column="1" Background="#ffe168" Grid.RowSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
+
+                </Grid.RowDefinitions>
+
+
+
+
+                <Label  Background="#a1eba7" Grid.Row="3" FontSize="15"  HorizontalAlignment="Center" Foreground="Black">Tour name:</Label>
+
+                <TextBlock Grid.Row="4" FontSize="15" HorizontalAlignment="Center" Text="{Binding SelectedTour.Name}" Foreground="Black"/>
+                <Label  Background="#a1eba7" Grid.Row="5" FontSize="15" HorizontalAlignment="Center" Foreground="Black">Max guest num:</Label>
+                <TextBlock Grid.Row="6" FontSize="15" HorizontalAlignment="Center" Text="{Binding SelectedTour.MaxGuestNum}" Foreground="Black"/>
+                <Label  Background="#a1eba7" Grid.Row="7" FontSize="15" HorizontalAlignment="Center" Foreground="Black">Duration:</Label>
+                <TextBlock Grid.Row="8" FontSize="15" HorizontalAlignment="Center" Text="{Binding SelectedTour.Duration}" Foreground="Black"/>
+                <Label  Background="#a1eba7" Grid.Row="9" FontSize="15" HorizontalAlignment="Center" Foreground="Black">Language:</Label>
+                <TextBlock Grid.Row="10" FontSize="15" HorizontalAlignment="Center" Text="{Binding SelectedTour.Language}" Foreground="Black"/>
+                <Label  Background="#a1eba7" Grid.Row="1" FontSize="15" HorizontalAlignment="Center" Foreground="Black">Tour location:</Label>
+                <TextBlock Grid.Row="2" FontSize="15" HorizontalAlignment="Center" Foreground="Black">
+                    <TextBlock.Text>
+                        <MultiBinding StringFormat="{}{0} {1}">
+                            <Binding Path="SelectedTour.Location.City"/>
+                            <Binding Path="SelectedTour.Location.Country"/>
+                        </MultiBinding>
+                    </TextBlock.Text>
+                </TextBlock>
+
+
+
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

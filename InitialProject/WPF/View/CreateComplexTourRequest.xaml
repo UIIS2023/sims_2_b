@@ -1,0 +1,47 @@
+﻿<Window x:Class="InitialProject.WPF.View.CreateComplexTourRequest"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InitialProject.WPF.View" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        mc:Ignorable="d"
+        Title="CreateComplexTourRequest" Height="450" Width="800" WindowStartupLocation = "CenterScreen">
+    <Grid>
+
+        <Grid.Background>
+            <ImageBrush ImageSource="../../Resources/Images/findtour.png"  Stretch="Fill"/>
+        </Grid.Background>
+        <Grid Margin="131,217,213,146">
+            <Grid.RowDefinitions >
+                <RowDefinition Height="50*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="223*"></ColumnDefinition>
+                <ColumnDefinition Width="50*"/>
+
+
+            </Grid.ColumnDefinitions>
+
+
+            <Label Grid.Row="0" Grid.Column="0" Margin="90,13,0,-5" Background="Transparent" Foreground="Purple" Content="How much tour requests&#xD;&#xA;does this complex tour include?"  />
+            <xctk:IntegerUpDown Watermark="1" Grid.Row="0" Foreground="Purple" BorderBrush="Purple" Background="Lavender" Grid.Column="1" Text="{Binding Path=RequestNumber, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="-50,25,70,2" RenderTransformOrigin="0.5,0.5">
+                <xctk:IntegerUpDown.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleY="1"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </xctk:IntegerUpDown.RenderTransform>
+            </xctk:IntegerUpDown>
+
+
+        </Grid>
+        <GroupBox Header="Options" Foreground="Lavender" BorderBrush="Lavender" Margin="131,311,142,31" BorderThickness="1" FontSize="13">
+            <StackPanel Orientation="Horizontal"  Margin="81,-5,7,0" Height="54">
+                <Button Content="Create simple request" Foreground="Purple" BorderBrush="Purple" Background="Lavender" Command="{Binding CreateSimpleRequestCommand}" Margin="10" Height="30" Width="150"/>
+                <Button Content="Cancel" Foreground="Purple" BorderBrush="Purple" Background="Lavender" Command="{Binding CancelCommand}" Margin="10" Height="30" Width="150"/>
+            </StackPanel>
+        </GroupBox>
+    </Grid>
+</Window>

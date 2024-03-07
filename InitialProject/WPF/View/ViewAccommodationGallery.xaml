@@ -1,0 +1,86 @@
+﻿<UserControl x:Class="InitialProject.View.ViewAccommodationGallery"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InitialProject.View"
+        mc:Ignorable="d"
+        d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+
+        <Grid.Background>
+            <ImageBrush ImageSource="../../Resources/Images/backgroundpurple.png"  Stretch="Fill"/>
+        </Grid.Background>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="20"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="20"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <GroupBox Grid.Row="1" Grid.Column="1" Header="Accommodation details" FontSize="31" FontWeight="Bold" FontStyle="Italic">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="7*"></ColumnDefinition>
+                    <ColumnDefinition Width="3*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <ScrollViewer Grid.Row="0" VerticalScrollBarVisibility="Visible" Margin="20">
+                    <WrapPanel  x:Name="ImagesPanel" Orientation="Horizontal">
+
+
+
+                    </WrapPanel>
+                </ScrollViewer>
+
+                <StackPanel Grid.Column="1" Orientation="Vertical">
+                    <TextBlock Text="{Binding SelectedAccommodation.Name}" FontSize="27" FontWeight="Bold" FontStyle="Normal" Margin="20 30 0 0"></TextBlock>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Margin="0 10 0 0">📍</Label>
+                        <TextBlock FontSize="27" Margin="5 10 0 0">
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}{0} {1}">
+                                    <Binding Path="SelectedAccommodation.Location.City"/>
+
+                                    <Binding Path="SelectedAccommodation.Location.Country"/>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <Label Margin="5 10 0 0">🏘️</Label>
+                        <TextBlock Text="{Binding SelectedAccommodation.Type}" FontSize="27"  FontStyle="Normal" Margin="5 10 0 0"></TextBlock>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="20 100 0 0">
+                        <Label FontSize="24">Max number of guests:</Label>
+                        <TextBlock Text="{Binding SelectedAccommodation.MaxGuestNum}" FontSize="24" Margin="20 10 0 0" FontStyle="Normal" ></TextBlock>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="20 8 0 0">
+                        <Label FontSize="24">Min reservation days:</Label>
+                        <TextBlock Text="{Binding SelectedAccommodation.MinReservationDays}" FontSize="24" Margin="40 10 0 0" FontStyle="Normal" ></TextBlock>
+                    </StackPanel>
+
+
+                    <StackPanel Orientation="Horizontal" Margin="20 8 0 0">
+                        <Label FontSize="24">Min cancellation days:</Label>
+                        <TextBlock Text="{Binding SelectedAccommodation.DaysBeforeCancel}" FontSize="24" Margin="32 10 0 0" FontStyle="Normal" ></TextBlock>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+
+
+
+
+
+        </GroupBox>
+    </Grid>
+</UserControl>

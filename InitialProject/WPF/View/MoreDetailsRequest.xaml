@@ -1,0 +1,87 @@
+﻿<Window x:Class="InitialProject.WPF.View.MoreDetailsRequest"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InitialProject.WPF.View" xmlns:viewmodel="clr-namespace:InitialProject.WPF.ViewModel" 
+        mc:Ignorable="d"
+        Title="MoreDetailsRequest" Height="496" Width="540" WindowStartupLocation = "CenterScreen">
+    <Grid>
+        <Grid Margin="0,10,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="560"/>
+            </Grid.ColumnDefinitions>
+
+            <Border BorderThickness="0 0 1 0" BorderBrush="DarkBlue" Background="AliceBlue" Margin="-10,0,10,0" Grid.RowSpan="2">
+
+            </Border>
+
+            <Grid Grid.Column="0" Grid.RowSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+
+                <Separator HorizontalAlignment="Stretch" Margin="0,27" Background="DarkBlue"  Height="10"/>
+
+            </Grid>
+
+
+            <Grid Background="Transparent" Margin="79,37,80,17">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0"></RowDefinition>
+                    <RowDefinition Height="34"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="37"></RowDefinition>
+                    <RowDefinition Height="32"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="33"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="28"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="29"></RowDefinition>
+                    <RowDefinition Height="88"></RowDefinition>
+                </Grid.RowDefinitions>
+
+
+
+
+                <Label Grid.Row="3" FontSize="15"  HorizontalAlignment="Center" Foreground="DarkBlue" Width="84" Content="Start date:"/>
+
+                <TextBlock Grid.Row="3" FontSize="15" HorizontalAlignment="Center" Text="{Binding SelectedTourRequest.NewStartDate}" Foreground="DarkBlue" Width="72" Margin="0,32,0,5" Grid.RowSpan="2"/>
+                <Label Grid.Row="5" FontSize="15" HorizontalAlignment="Center" Foreground="DarkBlue" Width="116">Max guest num:</Label>
+                <TextBlock Grid.Row="6" FontSize="15" HorizontalAlignment="Center" Text="{Binding SelectedTourRequest.GuestNum}" Foreground="DarkBlue" Width="28"/>
+                <Label Grid.Row="7" FontSize="15" HorizontalAlignment="Center" Foreground="DarkBlue" Width="100" Content="Description:"/>
+                <TextBlock Grid.Row="8" FontSize="15" HorizontalAlignment="Center" Text="{Binding SelectedTourRequest.Description}" Foreground="DarkBlue" Width="116"/>
+                <Label Grid.Row="9" FontSize="15" HorizontalAlignment="Center" Foreground="DarkBlue" Width="78">Language:</Label>
+                <TextBlock Grid.Row="9" FontSize="15" HorizontalAlignment="Center" Text="{Binding SelectedTourRequest.TourLanguage}" Foreground="DarkBlue" Width="58" Margin="0,34,0,1" Grid.RowSpan="2"/>
+                <Label Grid.Row="10" FontSize="15" HorizontalAlignment="Center" Foreground="DarkBlue" Width="58" Content="Status:" Margin="0,29,0,1" Grid.RowSpan="2"/>
+                <TextBlock Grid.Row="12" FontSize="15" HorizontalAlignment="Center" Text="{Binding SelectedTourRequest.Status}" Foreground="DarkBlue" Width="66" Margin="0,0,0,55"/>
+                <Label Grid.Row="1" FontSize="15" HorizontalAlignment="Center" Foreground="DarkBlue" Width="100">Tour location:</Label>
+                <TextBlock Grid.Row="2" FontSize="15" HorizontalAlignment="Center" Foreground="DarkBlue" Width="150">
+                    <TextBlock.Text>
+                        <MultiBinding StringFormat="{}{0} {1}">
+                            <Binding Path="SelectedTourRequest.Location.City"/>
+                            <Binding Path="SelectedTourRequest.Location.Country"/>
+                        </MultiBinding>
+                    </TextBlock.Text>
+                </TextBlock>
+
+
+
+            </Grid>
+
+            <Button Margin="422,392,54,20" Background="DarkBlue" Foreground="AliceBlue" Command="{Binding BackCommand}">
+                <WrapPanel Width="74" Height="27">
+                    <Image Source="../../Resources/Images/back2.png" Height="31" Width="27">
+                    </Image>
+                    <TextBlock Foreground="AliceBlue" HorizontalAlignment="Left" FontSize="15" Width="43" Height="26">Back</TextBlock>
+
+                </WrapPanel>
+
+            </Button>
+        </Grid>
+    </Grid>
+</Window>
